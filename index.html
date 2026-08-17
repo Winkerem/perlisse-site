@@ -1,1038 +1,878 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" content="Perlisse Atelier — zarif ve zamansız takılar.">
-<meta name="theme-color" content="#4b1824">
+  <meta name="description" content="Perlisse Atelier — zarif ve zamansız takılar.">
+  <meta name="theme-color" content="#551b26">
 
-<title>PERLISSE ATELIER</title>
+  <title>PERLISSE ATELIER</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<style>
+  <style>
 
-/* =========================
-   RENKLER
-========================= */
+    :root{
+      --burgundy:#551b26;
+      --burgundy-dark:#350f18;
+      --burgundy-soft:#6b2632;
 
-:root{
-  --burgundy:#4b1824;
-  --burgundy-dark:#2b0c14;
-  --burgundy-deep:#351019;
+      --olive:#4b5230;
+      --olive-light:#737b4d;
 
-  --olive:#515a32;
-  --olive-light:#737c4c;
+      --cream:#eee8dc;
+      --paper:#551b26;
 
-  --gold:#c9ad70;
+      --gold:#c9ad70;
+      --gold-light:#ddc88e;
 
-  --cream:#eee4d5;
-  --paper:#4b1824;
+      --ink:#211b19;
+      --line:rgba(201,173,112,.35);
+    }
 
-  --text:#f3e8da;
-  --muted:#d2c1b4;
-}
+    *{
+      box-sizing:border-box;
+    }
 
+    html{
+      scroll-behavior:smooth;
+    }
 
-/* =========================
-   GENEL
-========================= */
+    body{
+      margin:0;
+      background:var(--burgundy);
+      color:var(--cream);
+      font-family:Inter,Arial,sans-serif;
+    }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-html{
-  scroll-behavior:smooth;
-}
+    /* =========================
+       NAVIGATION
+    ========================= */
 
-body{
-  margin:0;
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:100;
 
-  color:var(--text);
+      background:var(--burgundy);
+      border-bottom:1px solid var(--line);
 
-  font-family:Inter,Arial,sans-serif;
+      box-shadow:0 4px 20px rgba(0,0,0,.12);
+    }
 
-  /* MUKAVVA / KARTON DOKUSU */
-  background-color:var(--burgundy);
+    .navin{
+      max-width:1180px;
+      margin:auto;
 
-  background-image:
-    radial-gradient(
-      rgba(255,255,255,.035) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      rgba(0,0,0,.07) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.025),
-      rgba(0,0,0,.045)
-    );
+      height:76px;
 
-  background-size:
-    5px 5px,
-    7px 7px,
-    100% 100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-  background-attachment:fixed;
-}
+      padding:0 22px;
+    }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
+    .brand{
+      font-family:"Cormorant Garamond",serif;
+      font-size:35px;
+      font-weight:600;
+      letter-spacing:5px;
+      color:var(--cream);
+    }
 
+    .links{
+      display:flex;
+      gap:30px;
 
-/* =========================
-   NAV
-========================= */
+      font-size:12px;
+      font-weight:500;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
 
-.nav{
-  position:sticky;
-  top:0;
-  z-index:100;
+    .links a{
+      color:#eee8dc;
+      transition:.25s ease;
+    }
 
-  background:
-    linear-gradient(
-      rgba(55,13,23,.94),
-      rgba(55,13,23,.94)
-    );
+    .links a:hover{
+      color:var(--gold-light);
+    }
 
-  border-bottom:1px solid rgba(201,173,112,.35);
 
-  backdrop-filter:blur(8px);
-}
+    /* =========================
+       HERO
+    ========================= */
 
-.navin{
-  max-width:1240px;
-  height:80px;
+    .hero{
+      max-width:1400px;
+      margin:auto;
 
-  margin:auto;
-  padding:0 28px;
+      padding:16px;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.025),
+          rgba(0,0,0,.08)
+        );
 
-.brand{
-  font-family:"Cormorant Garamond",serif;
+      border-left:1px solid rgba(201,173,112,.15);
+      border-right:1px solid rgba(201,173,112,.15);
+    }
 
-  font-size:38px;
-  letter-spacing:7px;
+    .hero img{
+      width:100%;
+      display:block;
 
-  color:#f4e9db;
-}
+      max-height:700px;
 
-.links{
-  display:flex;
-  gap:32px;
+      object-fit:cover;
 
-  color:#eadbce;
+      border:1px solid rgba(201,173,112,.25);
 
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
+      box-shadow:
+        0 15px 45px rgba(0,0,0,.28);
+    }
 
-.links a{
-  transition:.25s ease;
-}
 
-.links a:hover{
-  color:var(--gold);
-}
+    /* =========================
+       INTRO
+    ========================= */
 
+    .intro{
+      max-width:900px;
+      margin:auto;
 
-/* =========================
-   HERO
-========================= */
+      text-align:center;
 
-.hero{
-  width:100%;
-  max-width:1450px;
+      padding:90px 24px 80px;
+    }
 
-  margin:auto;
+    .eyebrow{
+      font-size:11px;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      color:var(--gold);
+    }
 
-  padding:18px;
+    h1,
+    h2,
+    h3{
+      font-family:"Cormorant Garamond",serif;
+      font-weight:600;
+    }
 
-  background:var(--burgundy-dark);
+    h1{
+      font-size:64px;
+      line-height:.95;
+      margin:20px 0;
+      color:var(--cream);
+    }
 
-  background-image:
-    radial-gradient(
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      rgba(0,0,0,.08) 1px,
-      transparent 1px
-    );
+    h2{
+      font-size:50px;
+      line-height:1;
+      margin:0 0 18px;
+    }
 
-  background-size:6px 6px,8px 8px;
-}
+    .intro p{
+      max-width:720px;
+      margin:0 auto;
 
-.hero img{
-  width:100%;
+      font-size:16px;
+      line-height:1.9;
 
-  height:min(72vh,700px);
-  min-height:470px;
+      color:#d8ccc0;
+    }
 
-  display:block;
+    .btn{
+      display:inline-block;
 
-  object-fit:cover;
-}
+      margin-top:28px;
 
+      background:var(--gold);
+      color:var(--burgundy-dark);
 
-/* =========================
-   INTRO
-========================= */
+      padding:15px 30px;
 
-.intro{
-  width:100%;
+      font-size:11px;
+      font-weight:600;
 
-  padding:105px 24px 100px;
+      letter-spacing:2px;
+      text-transform:uppercase;
 
-  text-align:center;
+      transition:.25s ease;
+    }
 
-  background-color:var(--burgundy);
+    .btn:hover{
+      background:var(--gold-light);
+      transform:translateY(-2px);
+    }
 
-  background-image:
-    radial-gradient(
-      rgba(255,255,255,.035) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      rgba(0,0,0,.07) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.025),
-      rgba(0,0,0,.04)
-    );
 
-  background-size:5px 5px,7px 7px,100% 100%;
-}
+    /* =========================
+       COLLECTION
+    ========================= */
 
-.eyebrow{
-  font-size:10px;
+    .section{
+      padding:80px 22px;
+      max-width:1180px;
+      margin:auto;
+    }
 
-  letter-spacing:4px;
-  text-transform:uppercase;
+    .sectionhead{
+      text-align:center;
+      margin-bottom:40px;
+    }
 
-  color:var(--gold);
-}
+    .sectionhead h2{
+      color:var(--cream);
+    }
 
-.intro h1{
-  max-width:900px;
+    .products{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
 
-  margin:20px auto;
+    .card{
+      background:#4a1721;
 
-  font-family:"Cormorant Garamond",serif;
+      border:1px solid var(--line);
 
-  font-size:clamp(52px,7vw,78px);
-  font-weight:500;
+      box-shadow:
+        0 12px 30px rgba(0,0,0,.12);
+    }
 
-  line-height:.92;
+    .pic{
+      aspect-ratio:1/1;
 
-  color:#f5eadd;
-}
+      background:
+        linear-gradient(
+          145deg,
+          #71694f,
+          #403d29
+        );
 
-.intro p{
-  max-width:680px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-  margin:auto;
+      position:relative;
+      overflow:hidden;
+    }
 
-  color:#d9c9bc;
+    .pic:after{
+      content:"PERLISSE";
 
-  font-size:15px;
-  line-height:2;
-}
+      font-family:"Cormorant Garamond",serif;
 
-.btn{
-  display:inline-block;
+      font-size:28px;
+      letter-spacing:5px;
 
-  margin-top:28px;
-  padding:15px 30px;
+      color:rgba(238,232,220,.25);
+    }
 
-  background:var(--olive);
+    .cardbody{
+      padding:22px;
+    }
 
-  color:#fff;
+    .card h3{
+      font-size:28px;
+      margin:0 0 6px;
 
-  font-size:10px;
-  font-weight:600;
+      color:var(--cream);
+    }
 
-  letter-spacing:2px;
-  text-transform:uppercase;
+    .price{
+      color:var(--gold);
+      font-size:13px;
+    }
 
-  transition:.25s ease;
-}
+    .shopbtn{
+      display:block;
 
-.btn:hover{
-  background:var(--gold);
-  color:var(--burgundy-dark);
-}
+      text-align:center;
 
+      margin-top:17px;
 
-/* =========================
-   COLLECTION
-========================= */
+      border:1px solid var(--gold);
 
-.section{
-  width:100%;
+      padding:13px;
 
-  padding:100px 28px;
+      color:var(--gold);
 
-  background-color:var(--burgundy-deep);
+      font-size:11px;
+      font-weight:500;
 
-  background-image:
-    radial-gradient(
-      rgba(255,255,255,.03) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      rgba(0,0,0,.075) 1px,
-      transparent 1px
-    );
+      letter-spacing:2px;
+      text-transform:uppercase;
 
-  background-size:5px 5px,8px 8px;
-}
+      transition:.25s ease;
+    }
 
-.sectionhead{
-  max-width:1180px;
+    .shopbtn:hover{
+      background:var(--gold);
+      color:var(--burgundy-dark);
+    }
 
-  margin:0 auto 50px;
 
-  text-align:center;
-}
+    /* =========================
+       ABOUT
+    ========================= */
 
-.sectionhead h2{
-  margin-top:10px;
+    .about{
+      background:
+        linear-gradient(
+          135deg,
+          #3a1019,
+          #551b26
+        );
 
-  font-family:"Cormorant Garamond",serif;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
 
-  font-size:58px;
-  font-weight:500;
+      position:relative;
+      overflow:hidden;
+    }
 
-  color:#f3e7d9;
-}
+    .about:before{
+      content:"";
 
-.sectionhead p{
-  margin-top:8px;
+      position:absolute;
+      inset:0;
 
-  color:#cbbab0;
+      background:
+        radial-gradient(
+          circle at 15% 50%,
+          rgba(115,123,77,.12),
+          transparent 35%
+        );
 
-  font-size:13px;
-}
+      pointer-events:none;
+    }
 
-.products{
-  max-width:1180px;
+    .aboutin{
+      max-width:900px;
+      margin:auto;
 
-  margin:auto;
+      text-align:center;
 
-  display:grid;
+      padding:95px 24px;
 
-  grid-template-columns:repeat(3,1fr);
+      position:relative;
+      z-index:1;
+    }
 
-  gap:24px;
-}
+    .about h2{
+      color:var(--cream);
 
-.card{
-  overflow:hidden;
+      font-size:54px;
 
-  background:#f4ecdf;
+      margin-top:18px;
+    }
 
-  border:1px solid rgba(201,173,112,.45);
+    .about p{
+      max-width:760px;
+      margin:auto;
 
-  transition:.3s ease;
-}
+      line-height:1.9;
 
-.card:hover{
-  transform:translateY(-6px);
+      color:#dfd4c8;
+      font-size:15px;
+    }
 
-  box-shadow:
-    0 20px 45px rgba(20,5,10,.3);
-}
 
-.pic{
-  position:relative;
+    /* =========================
+       CONTACT / DIRECT LINKS
+    ========================= */
 
-  aspect-ratio:1/1;
+    .contact{
+      background:var(--burgundy);
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+      padding:85px 22px;
 
-  overflow:hidden;
+      border-bottom:1px solid var(--line);
+    }
 
-  background:
-    radial-gradient(
-      circle at 70% 20%,
-      rgba(201,173,112,.28),
-      transparent 20%
-    ),
-    linear-gradient(
-      145deg,
-      #351019,
-      #551b26 58%,
-      #515a32
-    );
-}
+    .contactin{
+      max-width:700px;
+      margin:auto;
 
-.pic:before{
-  content:"✦";
+      display:flex;
+      flex-direction:column;
 
-  position:absolute;
+      gap:15px;
+    }
 
-  font-family:"Cormorant Garamond",serif;
+    .contactbtn{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-  font-size:100px;
+      width:100%;
 
-  color:rgba(201,173,112,.55);
-}
+      padding:23px 28px;
 
-.pic:after{
-  content:"PERLISSE";
+      border:1px solid var(--gold);
 
-  position:absolute;
+      color:var(--cream);
 
-  bottom:25px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.025),
+          rgba(0,0,0,.08)
+        );
 
-  font-family:"Cormorant Garamond",serif;
+      font-size:12px;
+      font-weight:500;
 
-  font-size:18px;
+      letter-spacing:3px;
 
-  letter-spacing:6px;
+      transition:.3s ease;
+    }
 
-  color:rgba(255,255,255,.72);
-}
+    .contactbtn .arrow{
+      font-size:25px;
+      letter-spacing:0;
 
-.cardbody{
-  padding:24px;
+      color:var(--gold);
 
-  text-align:center;
+      transition:.3s ease;
+    }
 
-  color:var(--burgundy-dark);
-}
+    .contactbtn:hover{
+      background:var(--burgundy-soft);
 
-.card h3{
-  font-family:"Cormorant Garamond",serif;
+      transform:translateY(-2px);
 
-  font-size:31px;
-  font-weight:600;
-}
+      box-shadow:
+        0 10px 25px rgba(0,0,0,.18);
+    }
 
-.price{
-  margin-top:8px;
+    .contactbtn:hover .arrow{
+      transform:translateX(6px);
+    }
 
-  color:var(--olive);
+    .contactbtn.shop{
+      background:var(--gold);
+      color:var(--burgundy-dark);
+    }
 
-  font-size:11px;
-  font-weight:600;
+    .contactbtn.shop .arrow{
+      color:var(--burgundy-dark);
+    }
 
-  letter-spacing:1px;
-}
+    .contactbtn.shop:hover{
+      background:var(--gold-light);
+    }
 
-.shopbtn{
-  display:block;
 
-  margin-top:18px;
-  padding:13px;
+    /* =========================
+       FOOTER
+    ========================= */
 
-  border:1px solid var(--burgundy);
+    .footer{
+      background:#2a0c13;
 
-  color:var(--burgundy);
+      color:#cfc2b7;
 
-  font-size:9px;
-  font-weight:600;
+      padding:30px 22px;
 
-  letter-spacing:2px;
-  text-transform:uppercase;
+      text-align:center;
 
-  transition:.25s ease;
-}
+      font-size:11px;
 
-.shopbtn:hover{
-  background:var(--burgundy);
-  color:#fff;
-}
+      letter-spacing:3px;
+    }
 
 
-/* =========================
-   ABOUT
-========================= */
+    /* =========================
+       MOBILE
+    ========================= */
 
-.about{
-  width:100%;
+    @media(max-width:760px){
 
-  background-color:var(--olive);
+      .navin{
+        height:68px;
+        padding:0 15px;
+      }
 
-  background-image:
-    radial-gradient(
-      rgba(255,255,255,.035) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      rgba(0,0,0,.06) 1px,
-      transparent 1px
-    );
+      .brand{
+        font-size:28px;
+        letter-spacing:4px;
+      }
 
-  background-size:5px 5px,8px 8px;
+      .links{
+        gap:12px;
+        font-size:9px;
+        letter-spacing:1px;
+      }
 
-  color:#f7f0e5;
+      .hero{
+        padding:8px;
+      }
 
-  text-align:center;
-}
+      .intro{
+        padding:70px 20px 65px;
+      }
 
-.aboutin{
-  max-width:900px;
+      h1{
+        font-size:45px;
+      }
 
-  margin:auto;
+      h2{
+        font-size:40px;
+      }
 
-  padding:110px 24px;
-}
+      .products{
+        grid-template-columns:1fr;
+      }
 
-.about .eyebrow{
-  color:#d1d5aa;
-}
+      .aboutin{
+        padding:75px 20px;
+      }
 
-.about h2{
-  margin:20px 0 25px;
+      .about h2{
+        font-size:42px;
+      }
 
-  font-family:"Cormorant Garamond",serif;
+      .contact{
+        padding:65px 18px;
+      }
 
-  font-size:clamp(48px,6vw,68px);
-  font-weight:500;
+      .contactbtn{
+        padding:20px;
+        font-size:10px;
+        letter-spacing:2px;
+      }
 
-  line-height:.95;
+    }
 
-  color:#f7efe4;
-}
-
-.about p{
-  max-width:700px;
-
-  margin:auto;
-
-  color:#e0e1d1;
-
-  font-size:15px;
-  line-height:2;
-}
-
-
-/* =========================
-   BRAND STRIP
-========================= */
-
-.brand-strip{
-  padding:70px 20px;
-
-  text-align:center;
-
-  background-color:var(--burgundy-dark);
-
-  background-image:
-    radial-gradient(
-      rgba(255,255,255,.03) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      rgba(0,0,0,.08) 1px,
-      transparent 1px
-    );
-
-  background-size:5px 5px,8px 8px;
-
-  border-top:1px solid rgba(201,173,112,.3);
-  border-bottom:1px solid rgba(201,173,112,.3);
-}
-
-.brand-strip h2{
-  font-family:"Cormorant Garamond",serif;
-
-  font-size:50px;
-  font-weight:500;
-
-  color:#f2e6d8;
-
-  letter-spacing:4px;
-}
-
-.brand-strip p{
-  margin-top:10px;
-
-  color:#cbbcb0;
-
-  font-size:10px;
-
-  letter-spacing:4px;
-  text-transform:uppercase;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact{
-  padding:100px 24px;
-
-  text-align:center;
-
-  background-color:var(--burgundy);
-
-  background-image:
-    radial-gradient(
-      rgba(255,255,255,.035) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      rgba(0,0,0,.07) 1px,
-      transparent 1px
-    );
-
-  background-size:5px 5px,7px 7px;
-}
-
-.contact h2{
-  margin:15px 0;
-
-  font-family:"Cormorant Garamond",serif;
-
-  font-size:58px;
-  font-weight:500;
-
-  color:#f4e8da;
-}
-
-.contact p{
-  margin:7px 0;
-
-  color:#d6c5b8;
-
-  font-size:14px;
-}
-
-.contact .btn{
-  background:var(--olive);
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-  padding:40px 22px;
-
-  text-align:center;
-
-  background-color:#210810;
-
-  background-image:
-    radial-gradient(
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      rgba(0,0,0,.1) 1px,
-      transparent 1px
-    );
-
-  background-size:5px 5px,8px 8px;
-
-  color:#cfc0b4;
-
-  font-size:10px;
-
-  letter-spacing:2px;
-}
-
-.footer-logo{
-  margin-bottom:8px;
-
-  font-family:"Cormorant Garamond",serif;
-
-  font-size:30px;
-
-  letter-spacing:6px;
-
-  color:#f2e6d8;
-}
-
-
-/* =========================
-   MOBİL
-========================= */
-
-@media(max-width:760px){
-
-  .navin{
-    min-height:72px;
-
-    height:auto;
-
-    padding:13px 16px;
-
-    flex-direction:column;
-
-    gap:10px;
-  }
-
-  .brand{
-    font-size:30px;
-  }
-
-  .links{
-    gap:15px;
-
-    font-size:8px;
-
-    letter-spacing:1px;
-  }
-
-  .hero{
-    padding:8px;
-  }
-
-  .hero img{
-    height:60vh;
-    min-height:420px;
-  }
-
-  .intro{
-    padding:80px 22px;
-  }
-
-  .intro h1{
-    font-size:48px;
-  }
-
-  .section{
-    padding:75px 18px;
-  }
-
-  .sectionhead h2{
-    font-size:46px;
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .aboutin{
-    padding:85px 22px;
-  }
-
-  .brand-strip h2{
-    font-size:38px;
-  }
-
-  .contact{
-    padding:80px 20px;
-  }
-
-  .contact h2{
-    font-size:48px;
-  }
-
-}
-
-</style>
+  </style>
 </head>
 
 
 <body>
 
 
-<!-- NAV -->
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
-<header class="nav">
+  <header class="nav">
 
-  <div class="navin">
+    <div class="navin">
 
-    <a class="brand" href="#">
-      PERLISSE
-    </a>
-
-    <nav class="links">
-
-      <a href="#collection">
-        Koleksiyon
+      <a class="brand" href="#">
+        PERLISSE
       </a>
 
-      <a href="#about">
-        Hakkımızda
-      </a>
+      <nav class="links">
 
-      <a href="#contact">
-        İletişim
-      </a>
+        <a href="#collection">
+          Koleksiyon
+        </a>
+
+        <a href="#about">
+          Hakkımızda
+        </a>
+
+        <a href="#contact">
+          İletişim
+        </a>
+
+        <a
+          href="https://shopier.com/Perlisse"
+          target="_blank"
+          rel="noopener">
+          Shop
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+      <img
+        src="images/hero.png"
+        alt="Perlisse Atelier takı koleksiyonu">
+
+    </section>
+
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <section class="intro">
+
+      <div class="eyebrow">
+        Perlisse Atelier · İstanbul
+      </div>
+
+      <h1>
+        Zamansız.<br>
+        Zarif. Sana ait.
+      </h1>
+
+      <p>
+        Günlük ışıltıdan özel anlara uzanan,
+        özenle seçilmiş takılar.
+        Perlisse, sade lüksü modern bir dokunuşla buluşturur.
+      </p>
 
       <a
-        href="https://shopier.com/Perlisse"
-        target="_blank"
-        rel="noopener"
-      >
-        Shop
+        class="btn"
+        href="#collection">
+        Koleksiyonu keşfet
       </a>
 
-    </nav>
-
-  </div>
-
-</header>
+    </section>
 
 
-<main>
 
+    <!-- =========================
+         COLLECTION
+    ========================= -->
 
-<!-- HERO -->
+    <section
+      id="collection"
+      class="section">
 
-<section class="hero">
+      <div class="sectionhead">
 
-  <img
-    src="images/hero.png"
-    alt="Perlisse Atelier takı koleksiyonu"
-  >
-
-</section>
-
-
-<!-- INTRO -->
-
-<section class="intro">
-
-  <div class="eyebrow">
-    Perlisse Atelier · İstanbul
-  </div>
-
-  <h1>
-    Zamansız.<br>
-    Zarif. Sana ait.
-  </h1>
-
-  <p>
-    Günlük ışıltıdan özel anlara uzanan,
-    özenle seçilmiş takılar.
-    Perlisse, sade lüksü modern bir dokunuşla buluşturur.
-  </p>
-
-  <a class="btn" href="#collection">
-    Koleksiyonu keşfet
-  </a>
-
-</section>
-
-
-<!-- COLLECTION -->
-
-<section id="collection" class="section">
-
-  <div class="sectionhead">
-
-    <div class="eyebrow">
-      Perlisse Collection
-    </div>
-
-    <h2>
-      Seçkimiz
-    </h2>
-
-    <p>
-      Her stile eşlik eden zarif parçalar.
-    </p>
-
-  </div>
-
-
-  <div class="products">
-
-
-    <article class="card">
-
-      <div class="pic"></div>
-
-      <div class="cardbody">
-
-        <h3>
-          İnci Kolye
-        </h3>
-
-        <div class="price">
-          YAKINDA
+        <div class="eyebrow">
+          Yeni koleksiyon
         </div>
 
-        <a
-          class="shopbtn"
-          href="https://shopier.com/Perlisse"
-          target="_blank"
-          rel="noopener"
-        >
-          Mağazayı ziyaret et
-        </a>
+        <h2>
+          Seçkimiz
+        </h2>
 
       </div>
 
-    </article>
+
+      <div class="products">
 
 
-    <article class="card">
+        <article class="card">
 
-      <div class="pic"></div>
+          <div class="pic"></div>
 
-      <div class="cardbody">
+          <div class="cardbody">
 
-        <h3>
-          Zarif Küpe
-        </h3>
+            <h3>
+              İnci Kolye
+            </h3>
 
-        <div class="price">
-          YAKINDA
-        </div>
+            <div class="price">
+              Shopier'de görüntüle
+            </div>
 
-        <a
-          class="shopbtn"
-          href="https://shopier.com/Perlisse"
-          target="_blank"
-          rel="noopener"
-        >
-          Mağazayı ziyaret et
-        </a>
+            <a
+              class="shopbtn"
+              href="https://shopier.com/Perlisse"
+              target="_blank"
+              rel="noopener">
+              Satın al
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <div class="pic"></div>
+
+          <div class="cardbody">
+
+            <h3>
+              Zarif Küpe
+            </h3>
+
+            <div class="price">
+              Shopier'de görüntüle
+            </div>
+
+            <a
+              class="shopbtn"
+              href="https://shopier.com/Perlisse"
+              target="_blank"
+              rel="noopener">
+              Satın al
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <div class="pic"></div>
+
+          <div class="cardbody">
+
+            <h3>
+              İmza Yüzük
+            </h3>
+
+            <div class="price">
+              Shopier'de görüntüle
+            </div>
+
+            <a
+              class="shopbtn"
+              href="https://shopier.com/Perlisse"
+              target="_blank"
+              rel="noopener">
+              Satın al
+            </a>
+
+          </div>
+
+        </article>
+
 
       </div>
 
-    </article>
+    </section>
 
 
-    <article class="card">
 
-      <div class="pic"></div>
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
-      <div class="cardbody">
+    <section
+      id="about"
+      class="about">
 
-        <h3>
-          İmza Yüzük
-        </h3>
+      <div class="aboutin">
 
-        <div class="price">
-          YAKINDA
+        <div
+          class="eyebrow"
+          style="color:#b8bd92">
+          Perlisse Atelier
         </div>
 
-        <a
-          class="shopbtn"
-          href="https://shopier.com/Perlisse"
-          target="_blank"
-          rel="noopener"
-        >
-          Mağazayı ziyaret et
-        </a>
+        <h2>
+          Her parça,<br>
+          kendi hikâyeni tamamlasın.
+        </h2>
+
+        <p>
+          Perlisse; bordo ve olive green tonlarının
+          sıcaklığından ilham alan, sade ama karakterli
+          bir takı markasıdır.
+          Koleksiyonlarımızı günlük stilinize kolayca
+          eşlik edecek parçalarla oluşturuyoruz.
+        </p>
 
       </div>
 
-    </article>
+    </section>
 
 
-  </div>
 
-</section>
+    <!-- =========================
+         DIRECT LINKS
+    ========================= -->
 
+    <section
+      id="contact"
+      class="contact">
 
-<!-- ABOUT -->
-
-<section id="about" class="about">
-
-  <div class="aboutin">
-
-    <div class="eyebrow">
-      PERLISSE ATELIER
-    </div>
-
-    <h2>
-      Takının en zarif hali.
-    </h2>
-
-    <p>
-      Perlisse, modern ve zamansız tasarımları
-      bir araya getirerek günlük stilinize eşlik eden
-      özel parçalar sunar.
-    </p>
-
-  </div>
-
-</section>
+      <div class="contactin">
 
 
-<!-- BRAND -->
+        <!-- INSTAGRAM -->
 
-<section class="brand-strip">
+        <a
+          class="contactbtn instagram"
+          href="https://www.instagram.com/officialperlisse/"
+          target="_blank"
+          rel="noopener">
 
-  <h2>
-    PERLISSE ATELIER
-  </h2>
+          <span>
+            INSTAGRAM
+          </span>
 
-  <p>
-    Zamansız · Zarif · Sana ait
-  </p>
+          <span class="arrow">
+            →
+          </span>
 
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-  <div class="eyebrow">
-    Bize ulaşın
-  </div>
-
-  <h2>
-    Perlisse ile tanış.
-  </h2>
-
-  <p>
-    Instagram: @officialperlisse
-  </p>
-
-  <p>
-    E-posta: info@perlisse.com
-  </p>
-
-  <a
-    class="btn"
-    href="https://instagram.com/officialperlisse"
-    target="_blank"
-    rel="noopener"
-  >
-    Instagram'a git
-  </a>
-
-</section>
+        </a>
 
 
-</main>
+
+        <!-- SHOPIER -->
+
+        <a
+          class="contactbtn shop"
+          href="https://shopier.com/Perlisse"
+          target="_blank"
+          rel="noopener">
+
+          <span>
+            SHOPIER MAĞAZASI
+          </span>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
 
 
-<!-- FOOTER -->
+      </div>
 
-<footer class="footer">
+    </section>
 
-  <div class="footer-logo">
-    PERLISSE
-  </div>
 
-  © 2026 PERLISSE ATELIER · İSTANBUL
+  </main>
 
-</footer>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer class="footer">
+
+    © 2026 PERLISSE ATELIER · İSTANBUL
+
+  </footer>
 
 
 </body>
