@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Perlisse Atelier — zarif ve zamansız takılar.">
+  <title>PERLISSE ATELIER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--burgundy:#551b26;--burgundy2:#351018;--olive:#4b5230;--cream:#eee8dc;--paper:#f7f3eb;--gold:#c9ad70;--ink:#211b19}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif}
+    a{text-decoration:none;color:inherit}
+    .nav{position:sticky;top:0;z-index:10;background:rgba(247,243,235,.94);backdrop-filter:blur(10px);border-bottom:1px solid #ded6c8}
+    .navin{max-width:1180px;margin:auto;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+    .brand{font-family:"Cormorant Garamond",serif;font-size:35px;letter-spacing:5px;color:var(--burgundy)}
+    .links{display:flex;gap:28px;font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
+    .links a:hover{color:var(--burgundy)}
+    .hero{max-width:1400px;margin:auto;padding:18px}
+    .hero img{width:100%;display:block;max-height:700px;object-fit:cover}
+    .intro{max-width:900px;margin:0 auto;text-align:center;padding:80px 24px 65px}
+    .eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--olive)}
+    h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:600}
+    h1{font-size:64px;line-height:.95;margin:18px 0}
+    h2{font-size:48px;margin:0 0 16px}
+    .intro p{font-size:16px;line-height:1.8;color:#5c5650}
+    .btn{display:inline-block;margin-top:22px;background:var(--burgundy);color:#fff;padding:15px 28px;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+    .section{padding:70px 22px;max-width:1180px;margin:auto}
+    .sectionhead{text-align:center;margin-bottom:38px}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;border:1px solid #e2dbcf}
+    .pic{aspect-ratio:1/1;background:linear-gradient(145deg,#efe7d9,#c9c0ad);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .pic:after{content:"PERLISSE";font-family:"Cormorant Garamond",serif;font-size:28px;letter-spacing:4px;color:rgba(85,27,38,.16)}
+    .cardbody{padding:20px}
+    .card h3{font-size:28px;margin:0 0 5px}
+    .price{color:var(--olive);font-weight:600}
+    .shopbtn{display:block;text-align:center;margin-top:16px;border:1px solid var(--burgundy);padding:12px;color:var(--burgundy);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+    .about{background:var(--burgundy2);color:#f6efe4}
+    .aboutin{max-width:900px;margin:auto;text-align:center;padding:80px 24px}
+    .about h2{color:#f6efe4}.about p{line-height:1.9;color:#dfd4c8}
+    .contact{background:var(--olive);color:#f7f3eb;text-align:center;padding:70px 22px}
+    .contact h2{margin-bottom:10px}.contact p{margin:8px 0}
+    .footer{background:#241418;color:#cfc2b7;padding:28px 22px;text-align:center;font-size:12px;letter-spacing:1px}
+    @media(max-width:760px){.links{gap:12px;font-size:10px}.brand{font-size:28px}.navin{height:66px;padding:0 14px}h1{font-size:45px}h2{font-size:38px}.products{grid-template-columns:1fr}.hero{padding:8px}}
+  </style>
+</head>
+<body>
+<header class="nav">
+  <div class="navin">
+    <a class="brand" href="#">PERLISSE</a>
+    <nav class="links">
+      <a href="#collection">Koleksiyon</a>
+      <a href="#about">Hakkımızda</a>
+      <a href="#contact">İletişim</a>
+      <a href="https://shopier.com/Perlisse" target="_blank" rel="noopener">Shop</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero"><img src="images/hero.png" alt="Perlisse Atelier takı koleksiyonu"></section>
+
+  <section class="intro">
+    <div class="eyebrow">Perlisse Atelier · İstanbul</div>
+    <h1>Zamansız. Zarif. Sana ait.</h1>
+    <p>Günlük ışıltıdan özel anlara uzanan, özenle seçilmiş takılar. Perlisse, sade lüksü modern bir dokunuşla buluşturur.</p>
+    <a class="btn" href="#collection">Koleksiyonu keşfet</a>
+  </section>
+
+  <section id="collection" class="section">
+    <div class="sectionhead">
+      <div class="eyebrow">Yeni koleksiyon</div>
+      <h2>Seçkimiz</h2>
+    </div>
+    <div class="products">
+      <article class="card"><div class="pic"></div><div class="cardbody"><h3>İnci Kolye</h3><div class="price">Shopier'de görüntüle</div><a class="shopbtn" href="https://shopier.com/Perlisse" target="_blank" rel="noopener">Satın al</a></div></article>
+      <article class="card"><div class="pic"></div><div class="cardbody"><h3>Zarif Küpe</h3><div class="price">Shopier'de görüntüle</div><a class="shopbtn" href="https://shopier.com/Perlisse" target="_blank" rel="noopener">Satın al</a></div></article>
+      <article class="card"><div class="pic"></div><div class="cardbody"><h3>İmza Yüzük</h3><div class="price">Shopier'de görüntüle</div><a class="shopbtn" href="https://shopier.com/Perlisse" target="_blank" rel="noopener">Satın al</a></div></article>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="aboutin">
+      <div class="eyebrow" style="color:#b8bd92">Perlisse Atelier</div>
+      <h2>Her parça, kendi hikâyeni tamamlasın.</h2>
+      <p>Perlisse; bordo ve olive green tonlarının sıcaklığından ilham alan, sade ama karakterli bir takı markasıdır. Koleksiyonlarımızı günlük stilinize kolayca eşlik edecek parçalarla oluşturuyoruz.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>İletişime geç</h2>
+    <p>Instagram: @officialperlisse</p>
+    <p>E-posta: info@perlisse.com</p>
+    <a class="btn" style="background:#f7f3eb;color:#351018" href="https://shopier.com/Perlisse" target="_blank" rel="noopener">Shopier mağazasına git</a>
+  </section>
+</main>
+
+<footer class="footer">© 2026 PERLISSE ATELIER · İSTANBUL</footer>
+</body>
+</html>
