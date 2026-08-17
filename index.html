@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="description" content="Perlisse Atelier — zarif ve zamansız takılar.">
-<meta name="theme-color" content="#4d1521">
+<meta name="theme-color" content="#4b1824">
 
 <title>PERLISSE ATELIER</title>
 
@@ -16,19 +16,31 @@
 
 <style>
 
+/* =========================
+   RENKLER
+========================= */
+
 :root{
-  --burgundy:#4d1521;
-  --burgundy-dark:#280b12;
-  --burgundy-light:#6b2432;
+  --burgundy:#4b1824;
+  --burgundy-dark:#2b0c14;
+  --burgundy-deep:#351019;
+
   --olive:#515a32;
   --olive-light:#737c4c;
-  --cream:#f1eadf;
-  --cream-dark:#ddd2c2;
+
   --gold:#c9ad70;
-  --white:#fffdf9;
-  --text:#2a1c1d;
-  --muted:#75696a;
+
+  --cream:#eee4d5;
+  --paper:#4b1824;
+
+  --text:#f3e8da;
+  --muted:#d2c1b4;
 }
+
+
+/* =========================
+   GENEL
+========================= */
 
 *{
   box-sizing:border-box;
@@ -41,32 +53,68 @@ html{
 }
 
 body{
-  background:var(--cream);
+  margin:0;
+
   color:var(--text);
+
   font-family:Inter,Arial,sans-serif;
+
+  /* MUKAVVA / KARTON DOKUSU */
+  background-color:var(--burgundy);
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      rgba(0,0,0,.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.025),
+      rgba(0,0,0,.045)
+    );
+
+  background-size:
+    5px 5px,
+    7px 7px,
+    100% 100%;
+
+  background-attachment:fixed;
 }
 
 a{
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
 }
 
 
 /* =========================
-   NAVIGATION
+   NAV
 ========================= */
 
 .nav{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(77,21,33,.97);
+
+  background:
+    linear-gradient(
+      rgba(55,13,23,.94),
+      rgba(55,13,23,.94)
+    );
+
   border-bottom:1px solid rgba(201,173,112,.35);
+
+  backdrop-filter:blur(8px);
 }
 
 .navin{
   max-width:1240px;
   height:80px;
+
   margin:auto;
   padding:0 28px;
 
@@ -77,16 +125,19 @@ a{
 
 .brand{
   font-family:"Cormorant Garamond",serif;
+
   font-size:38px;
   letter-spacing:7px;
-  color:#f5eadb;
+
+  color:#f4e9db;
 }
 
 .links{
   display:flex;
   gap:32px;
 
-  color:#eee1d3;
+  color:#eadbce;
+
   font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
@@ -106,19 +157,36 @@ a{
 ========================= */
 
 .hero{
+  width:100%;
   max-width:1450px;
+
   margin:auto;
+
   padding:18px;
 
   background:var(--burgundy-dark);
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      rgba(0,0,0,.08) 1px,
+      transparent 1px
+    );
+
+  background-size:6px 6px,8px 8px;
 }
 
 .hero img{
   width:100%;
+
   height:min(72vh,700px);
   min-height:470px;
 
   display:block;
+
   object-fit:cover;
 }
 
@@ -128,36 +196,63 @@ a{
 ========================= */
 
 .intro{
-  background:var(--burgundy);
+  width:100%;
 
-  color:#f5eadb;
+  padding:105px 24px 100px;
+
   text-align:center;
 
-  padding:105px 24px 95px;
+  background-color:var(--burgundy);
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      rgba(0,0,0,.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.025),
+      rgba(0,0,0,.04)
+    );
+
+  background-size:5px 5px,7px 7px,100% 100%;
 }
 
 .eyebrow{
   font-size:10px;
+
   letter-spacing:4px;
   text-transform:uppercase;
+
   color:var(--gold);
 }
 
 .intro h1{
   max-width:900px;
+
   margin:20px auto;
 
   font-family:"Cormorant Garamond",serif;
-  font-size:clamp(50px,7vw,76px);
+
+  font-size:clamp(52px,7vw,78px);
   font-weight:500;
+
   line-height:.92;
+
+  color:#f5eadd;
 }
 
 .intro p{
   max-width:680px;
+
   margin:auto;
 
-  color:#ddcfc2;
+  color:#d9c9bc;
+
   font-size:15px;
   line-height:2;
 }
@@ -169,10 +264,12 @@ a{
   padding:15px 30px;
 
   background:var(--olive);
+
   color:#fff;
 
   font-size:10px;
   font-weight:600;
+
   letter-spacing:2px;
   text-transform:uppercase;
 
@@ -190,60 +287,79 @@ a{
 ========================= */
 
 .section{
-  background:var(--cream);
+  width:100%;
 
-  max-width:100%;
   padding:100px 28px;
+
+  background-color:var(--burgundy-deep);
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,.03) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      rgba(0,0,0,.075) 1px,
+      transparent 1px
+    );
+
+  background-size:5px 5px,8px 8px;
 }
 
 .sectionhead{
   max-width:1180px;
+
   margin:0 auto 50px;
 
   text-align:center;
-}
-
-.sectionhead .eyebrow{
-  color:var(--olive);
 }
 
 .sectionhead h2{
   margin-top:10px;
 
   font-family:"Cormorant Garamond",serif;
+
   font-size:58px;
   font-weight:500;
 
-  color:var(--burgundy-dark);
+  color:#f3e7d9;
 }
 
 .sectionhead p{
   margin-top:8px;
-  color:var(--muted);
+
+  color:#cbbab0;
+
   font-size:13px;
 }
 
 .products{
   max-width:1180px;
+
   margin:auto;
 
   display:grid;
+
   grid-template-columns:repeat(3,1fr);
+
   gap:24px;
 }
 
 .card{
   overflow:hidden;
 
-  background:var(--white);
-  border:1px solid #d8cdbc;
+  background:#f4ecdf;
+
+  border:1px solid rgba(201,173,112,.45);
 
   transition:.3s ease;
 }
 
 .card:hover{
   transform:translateY(-6px);
-  box-shadow:0 20px 45px rgba(40,11,18,.13);
+
+  box-shadow:
+    0 20px 45px rgba(20,5,10,.3);
 }
 
 .pic{
@@ -259,13 +375,13 @@ a{
 
   background:
     radial-gradient(
-      circle at 72% 22%,
-      rgba(201,173,112,.25),
+      circle at 70% 20%,
+      rgba(201,173,112,.28),
       transparent 20%
     ),
     linear-gradient(
       145deg,
-      #321017,
+      #351019,
       #551b26 58%,
       #515a32
     );
@@ -277,6 +393,7 @@ a{
   position:absolute;
 
   font-family:"Cormorant Garamond",serif;
+
   font-size:100px;
 
   color:rgba(201,173,112,.55);
@@ -286,10 +403,13 @@ a{
   content:"PERLISSE";
 
   position:absolute;
+
   bottom:25px;
 
   font-family:"Cormorant Garamond",serif;
+
   font-size:18px;
+
   letter-spacing:6px;
 
   color:rgba(255,255,255,.72);
@@ -297,23 +417,27 @@ a{
 
 .cardbody{
   padding:24px;
+
   text-align:center;
+
+  color:var(--burgundy-dark);
 }
 
 .card h3{
   font-family:"Cormorant Garamond",serif;
+
   font-size:31px;
   font-weight:600;
-
-  color:var(--burgundy-dark);
 }
 
 .price{
   margin-top:8px;
 
   color:var(--olive);
+
   font-size:11px;
   font-weight:600;
+
   letter-spacing:1px;
 }
 
@@ -329,6 +453,7 @@ a{
 
   font-size:9px;
   font-weight:600;
+
   letter-spacing:2px;
   text-transform:uppercase;
 
@@ -346,7 +471,22 @@ a{
 ========================= */
 
 .about{
-  background:var(--olive);
+  width:100%;
+
+  background-color:var(--olive);
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      rgba(0,0,0,.06) 1px,
+      transparent 1px
+    );
+
+  background-size:5px 5px,8px 8px;
+
   color:#f7f0e5;
 
   text-align:center;
@@ -354,6 +494,7 @@ a{
 
 .aboutin{
   max-width:900px;
+
   margin:auto;
 
   padding:110px 24px;
@@ -367,17 +508,21 @@ a{
   margin:20px 0 25px;
 
   font-family:"Cormorant Garamond",serif;
+
   font-size:clamp(48px,6vw,68px);
   font-weight:500;
 
   line-height:.95;
+
+  color:#f7efe4;
 }
 
 .about p{
   max-width:700px;
+
   margin:auto;
 
-  color:#dfe1d0;
+  color:#e0e1d1;
 
   font-size:15px;
   line-height:2;
@@ -389,24 +534,37 @@ a{
 ========================= */
 
 .brand-strip{
-  background:var(--burgundy-dark);
-
-  padding:65px 20px;
+  padding:70px 20px;
 
   text-align:center;
 
-  border-top:1px solid rgba(201,173,112,.25);
-  border-bottom:1px solid rgba(201,173,112,.25);
+  background-color:var(--burgundy-dark);
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,.03) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      rgba(0,0,0,.08) 1px,
+      transparent 1px
+    );
+
+  background-size:5px 5px,8px 8px;
+
+  border-top:1px solid rgba(201,173,112,.3);
+  border-bottom:1px solid rgba(201,173,112,.3);
 }
 
 .brand-strip h2{
   font-family:"Cormorant Garamond",serif;
-  font-size:48px;
+
+  font-size:50px;
   font-weight:500;
 
-  color:#f3e8da;
+  color:#f2e6d8;
 
-  letter-spacing:3px;
+  letter-spacing:4px;
 }
 
 .brand-strip p{
@@ -415,6 +573,7 @@ a{
   color:#cbbcb0;
 
   font-size:10px;
+
   letter-spacing:4px;
   text-transform:uppercase;
 }
@@ -425,41 +584,46 @@ a{
 ========================= */
 
 .contact{
-  background:var(--cream);
+  padding:100px 24px;
 
   text-align:center;
 
-  padding:100px 24px;
-}
+  background-color:var(--burgundy);
 
-.contact .eyebrow{
-  color:var(--olive);
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      rgba(0,0,0,.07) 1px,
+      transparent 1px
+    );
+
+  background-size:5px 5px,7px 7px;
 }
 
 .contact h2{
   margin:15px 0;
 
   font-family:"Cormorant Garamond",serif;
+
   font-size:58px;
   font-weight:500;
 
-  color:var(--burgundy-dark);
+  color:#f4e8da;
 }
 
 .contact p{
   margin:7px 0;
 
-  color:var(--muted);
+  color:#d6c5b8;
+
   font-size:14px;
 }
 
 .contact .btn{
-  background:var(--burgundy);
-}
-
-.contact .btn:hover{
   background:var(--olive);
-  color:#fff;
 }
 
 
@@ -468,15 +632,28 @@ a{
 ========================= */
 
 .footer{
-  background:var(--burgundy-dark);
-
-  color:#cfc0b4;
-
-  padding:38px 22px;
+  padding:40px 22px;
 
   text-align:center;
 
+  background-color:#210810;
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      rgba(0,0,0,.1) 1px,
+      transparent 1px
+    );
+
+  background-size:5px 5px,8px 8px;
+
+  color:#cfc0b4;
+
   font-size:10px;
+
   letter-spacing:2px;
 }
 
@@ -484,7 +661,9 @@ a{
   margin-bottom:8px;
 
   font-family:"Cormorant Garamond",serif;
+
   font-size:30px;
+
   letter-spacing:6px;
 
   color:#f2e6d8;
@@ -492,18 +671,20 @@ a{
 
 
 /* =========================
-   MOBILE
+   MOBİL
 ========================= */
 
 @media(max-width:760px){
 
   .navin{
-    height:auto;
     min-height:72px;
+
+    height:auto;
 
     padding:13px 16px;
 
     flex-direction:column;
+
     gap:10px;
   }
 
@@ -513,7 +694,9 @@ a{
 
   .links{
     gap:15px;
+
     font-size:8px;
+
     letter-spacing:1px;
   }
 
@@ -544,7 +727,6 @@ a{
 
   .products{
     grid-template-columns:1fr;
-    gap:20px;
   }
 
   .aboutin{
@@ -572,9 +754,7 @@ a{
 <body>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAV -->
 
 <header class="nav">
 
@@ -616,9 +796,7 @@ a{
 <main>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -630,9 +808,7 @@ a{
 </section>
 
 
-<!-- =========================
-     INTRO
-========================= -->
+<!-- INTRO -->
 
 <section class="intro">
 
@@ -651,24 +827,16 @@ a{
     Perlisse, sade lüksü modern bir dokunuşla buluşturur.
   </p>
 
-  <a
-    class="btn"
-    href="#collection"
-  >
+  <a class="btn" href="#collection">
     Koleksiyonu keşfet
   </a>
 
 </section>
 
 
-<!-- =========================
-     COLLECTION
-========================= -->
+<!-- COLLECTION -->
 
-<section
-  id="collection"
-  class="section"
->
+<section id="collection" class="section">
 
   <div class="sectionhead">
 
@@ -689,8 +857,6 @@ a{
 
   <div class="products">
 
-
-    <!-- PRODUCT 1 -->
 
     <article class="card">
 
@@ -720,8 +886,6 @@ a{
     </article>
 
 
-    <!-- PRODUCT 2 -->
-
     <article class="card">
 
       <div class="pic"></div>
@@ -749,8 +913,6 @@ a{
 
     </article>
 
-
-    <!-- PRODUCT 3 -->
 
     <article class="card">
 
@@ -785,14 +947,9 @@ a{
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
-<section
-  id="about"
-  class="about"
->
+<section id="about" class="about">
 
   <div class="aboutin">
 
@@ -815,9 +972,7 @@ a{
 </section>
 
 
-<!-- =========================
-     BRAND STRIP
-========================= -->
+<!-- BRAND -->
 
 <section class="brand-strip">
 
@@ -832,14 +987,9 @@ a{
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- CONTACT -->
 
-<section
-  id="contact"
-  class="contact"
->
+<section id="contact" class="contact">
 
   <div class="eyebrow">
     Bize ulaşın
@@ -872,9 +1022,7 @@ a{
 </main>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer class="footer">
 
