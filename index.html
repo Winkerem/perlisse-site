@@ -42,6 +42,10 @@
 
   <style>
 
+    /* =========================================
+       RENKLER
+    ========================================= */
+
     :root{
       --burgundy:#351018;
       --burgundy-dark:#24090e;
@@ -61,21 +65,30 @@
       --line:rgba(201,173,112,.35);
     }
 
+
+    /* =========================================
+       GENEL
+    ========================================= */
+
     *{
       box-sizing:border-box;
     }
 
     html{
       scroll-behavior:smooth;
+
       width:100%;
       max-width:100%;
+
       overflow-x:hidden;
     }
 
     body{
       margin:0;
+
       width:100%;
       max-width:100%;
+
       overflow-x:hidden;
 
       color:var(--cream);
@@ -83,10 +96,13 @@
       font-family:Inter,Arial,sans-serif;
 
       background-color:var(--burgundy);
+
       background-image:url("images/background.png");
+
       background-size:600px auto;
       background-position:center top;
       background-repeat:repeat;
+
       background-attachment:fixed;
     }
 
@@ -100,13 +116,15 @@
     }
 
 
-    /* =========================
+    /* =========================================
        NAVBAR
-    ========================= */
+    ========================================= */
 
     .nav{
       position:sticky;
+
       top:0;
+
       z-index:1000;
 
       width:100%;
@@ -126,9 +144,11 @@
       height:76px;
 
       margin:auto;
+
       padding:0 22px;
 
       display:flex;
+
       align-items:center;
       justify-content:space-between;
     }
@@ -137,6 +157,7 @@
       font-family:"Cormorant Garamond",serif;
 
       font-size:35px;
+
       font-weight:600;
 
       letter-spacing:6px;
@@ -148,11 +169,13 @@
 
     .links{
       display:flex;
+
       align-items:center;
 
       gap:30px;
 
       font-size:12px;
+
       font-weight:500;
 
       letter-spacing:2px;
@@ -171,9 +194,9 @@
     }
 
 
-    /* =========================
-       MOBILE MENU BUTTON
-    ========================= */
+    /* =========================================
+       MOBİL MENÜ BUTONU
+    ========================================= */
 
     .menu-btn{
       display:none;
@@ -213,32 +236,70 @@
     }
 
 
-    /* =========================
+    /* =========================================
        HERO
-    ========================= */
+    ========================================= */
 
     .hero{
       width:100%;
       max-width:1400px;
 
       margin:auto;
-      padding:18px;
+
+      padding:18px 18px 0;
     }
 
     .hero-frame{
       position:relative;
 
-      overflow:hidden;
-
       width:100%;
 
-      border:1px solid rgba(201,173,112,.28);
+      overflow:hidden;
 
-      background:#24090e;
+      background:var(--burgundy);
 
-      box-shadow:
-        0 20px 60px rgba(0,0,0,.35),
-        inset 0 0 0 1px rgba(255,255,255,.03);
+      border:none;
+
+      box-shadow:none;
+
+      /*
+        Fotoğrafın sağ ve sol kenarlarını
+        bordo zemine yumuşak şekilde eritiyoruz.
+      */
+
+      -webkit-mask-image:
+        linear-gradient(
+          to right,
+
+          transparent 0%,
+
+          rgba(0,0,0,.55) 1.5%,
+
+          #000 4%,
+
+          #000 96%,
+
+          rgba(0,0,0,.55) 98.5%,
+
+          transparent 100%
+        );
+
+      mask-image:
+        linear-gradient(
+          to right,
+
+          transparent 0%,
+
+          rgba(0,0,0,.55) 1.5%,
+
+          #000 4%,
+
+          #000 96%,
+
+          rgba(0,0,0,.55) 98.5%,
+
+          transparent 100%
+        );
     }
 
     .hero img{
@@ -253,9 +314,9 @@
     }
 
 
-    /* =========================
+    /* =========================================
        INTRO
-    ========================= */
+    ========================================= */
 
     .intro{
       width:100%;
@@ -270,6 +331,7 @@
 
     .eyebrow{
       font-size:11px;
+
       font-weight:500;
 
       letter-spacing:5px;
@@ -321,6 +383,7 @@
       color:var(--burgundy-dark);
 
       font-size:11px;
+
       font-weight:600;
 
       letter-spacing:2px;
@@ -337,9 +400,9 @@
     }
 
 
-    /* =========================
-       COLLECTION
-    ========================= */
+    /* =========================================
+       KOLEKSİYON
+    ========================================= */
 
     .section{
       width:100%;
@@ -369,7 +432,8 @@
 
       display:grid;
 
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
 
       gap:24px;
     }
@@ -384,6 +448,7 @@
       border:1px solid rgba(201,173,112,.28);
 
       backdrop-filter:blur(5px);
+
       -webkit-backdrop-filter:blur(5px);
 
       transition:.3s ease;
@@ -392,7 +457,8 @@
     .card:hover{
       transform:translateY(-5px);
 
-      border-color:rgba(201,173,112,.65);
+      border-color:
+        rgba(201,173,112,.65);
 
       box-shadow:
         0 18px 40px rgba(0,0,0,.3);
@@ -468,6 +534,7 @@
       color:var(--gold-light);
 
       font-size:11px;
+
       font-weight:500;
 
       letter-spacing:2px;
@@ -484,17 +551,20 @@
     }
 
 
-    /* =========================
-       ABOUT
-    ========================= */
+    /* =========================================
+       HAKKIMIZDA
+    ========================================= */
 
     .about{
       width:100%;
 
       background:rgba(36,9,14,.74);
 
-      border-top:1px solid rgba(201,173,112,.2);
-      border-bottom:1px solid rgba(201,173,112,.2);
+      border-top:
+        1px solid rgba(201,173,112,.2);
+
+      border-bottom:
+        1px solid rgba(201,173,112,.2);
     }
 
     .aboutin{
@@ -527,9 +597,9 @@
     }
 
 
-    /* =========================
-       CONTACT
-    ========================= */
+    /* =========================================
+       İLETİŞİM
+    ========================================= */
 
     .contact{
       width:100%;
@@ -540,7 +610,8 @@
 
       background:rgba(75,82,48,.94);
 
-      border-top:1px solid rgba(201,173,112,.25);
+      border-top:
+        1px solid rgba(201,173,112,.25);
     }
 
     .contact h2{
@@ -576,6 +647,7 @@
       color:var(--cream);
 
       font-size:11px;
+
       font-weight:600;
 
       letter-spacing:2px;
@@ -592,9 +664,9 @@
     }
 
 
-    /* =========================
+    /* =========================================
        FOOTER
-    ========================= */
+    ========================================= */
 
     .footer{
       width:100%;
@@ -613,14 +685,15 @@
     }
 
 
-    /* =========================
+    /* =========================================
        TABLET
-    ========================= */
+    ========================================= */
 
     @media(max-width:900px){
 
       .products{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
       }
 
       h1{
@@ -630,9 +703,9 @@
     }
 
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* =========================================
+       MOBİL
+    ========================================= */
 
     @media(max-width:760px){
 
@@ -641,6 +714,9 @@
 
         background-attachment:scroll;
       }
+
+
+      /* NAV */
 
       .navin{
         height:66px;
@@ -654,19 +730,16 @@
         letter-spacing:4px;
       }
 
-      /* Masaüstü menüyü gizle */
-
       .links{
         display:none;
       }
-
-      /* Hamburger göster */
 
       .menu-btn{
         display:flex;
       }
 
-      /* Açılan mobil menü */
+
+      /* MOBİL MENÜ */
 
       .mobile-menu{
         display:none;
@@ -682,9 +755,11 @@
 
         background:rgba(53,16,24,.98);
 
-        border-bottom:1px solid var(--line);
+        border-bottom:
+          1px solid var(--line);
 
-        box-shadow:0 15px 35px rgba(0,0,0,.3);
+        box-shadow:
+          0 15px 35px rgba(0,0,0,.3);
       }
 
       .mobile-menu.active{
@@ -696,11 +771,13 @@
 
         padding:16px 8px;
 
-        border-bottom:1px solid rgba(201,173,112,.15);
+        border-bottom:
+          1px solid rgba(201,173,112,.15);
 
         color:var(--cream);
 
         font-size:11px;
+
         font-weight:500;
 
         letter-spacing:2px;
@@ -712,18 +789,81 @@
         border-bottom:0;
       }
 
+
+      /* =====================================
+         MOBİL HERO
+      ===================================== */
+
       .hero{
-        padding:8px;
+        width:100%;
+
+        padding:8px 0 0;
       }
 
       .hero-frame{
         width:100%;
+
+        /*
+          Mobilde fade biraz daha geniş.
+          Böylece fotoğrafın kenarları
+          kesinlikle kesilmiş gibi görünmeyecek.
+        */
+
+        -webkit-mask-image:
+          linear-gradient(
+            to right,
+
+            transparent 0%,
+
+            rgba(0,0,0,.45) 1%,
+
+            rgba(0,0,0,.82) 3%,
+
+            #000 6%,
+
+            #000 94%,
+
+            rgba(0,0,0,.82) 97%,
+
+            rgba(0,0,0,.45) 99%,
+
+            transparent 100%
+          );
+
+        mask-image:
+          linear-gradient(
+            to right,
+
+            transparent 0%,
+
+            rgba(0,0,0,.45) 1%,
+
+            rgba(0,0,0,.82) 3%,
+
+            #000 6%,
+
+            #000 94%,
+
+            rgba(0,0,0,.82) 97%,
+
+            rgba(0,0,0,.45) 99%,
+
+            transparent 100%
+          );
       }
 
       .hero img{
         width:100%;
+
         height:auto;
+
+        display:block;
+
+        object-fit:cover;
       }
+
+
+      /* INTRO */
 
       .intro{
         width:100%;
@@ -748,6 +888,9 @@
 
         line-height:1.8;
       }
+
+
+      /* COLLECTION */
 
       .section{
         width:100%;
@@ -785,6 +928,9 @@
         font-size:27px;
       }
 
+
+      /* ABOUT */
+
       .aboutin{
         width:100%;
 
@@ -802,6 +948,9 @@
 
         line-height:1.8;
       }
+
+
+      /* CONTACT */
 
       .contact{
         padding:75px 20px;
@@ -827,6 +976,9 @@
         max-width:300px;
       }
 
+
+      /* FOOTER */
+
       .footer{
         padding:25px 15px;
 
@@ -838,9 +990,9 @@
     }
 
 
-    /* =========================
-       VERY SMALL PHONES
-    ========================= */
+    /* =========================================
+       ÇOK KÜÇÜK TELEFONLAR
+    ========================================= */
 
     @media(max-width:380px){
 
@@ -855,11 +1007,12 @@
       }
 
       .hero{
-        padding:6px;
+        padding:6px 0 0;
       }
 
       .section{
         padding-left:12px;
+
         padding-right:12px;
       }
 
@@ -873,9 +1026,9 @@
 <body>
 
 
-  <!-- =========================
+  <!-- =========================================
        NAVBAR
-  ========================= -->
+  ========================================= -->
 
   <header class="nav">
 
@@ -889,7 +1042,7 @@
       </a>
 
 
-      <!-- DESKTOP -->
+      <!-- MASAÜSTÜ MENÜ -->
 
       <nav class="links">
 
@@ -916,7 +1069,7 @@
       </nav>
 
 
-      <!-- MOBILE -->
+      <!-- MOBİL HAMBURGER -->
 
       <button
         class="menu-btn"
@@ -934,7 +1087,7 @@
     </div>
 
 
-    <!-- MOBILE MENU -->
+    <!-- MOBİL MENÜ -->
 
     <div
       class="mobile-menu"
@@ -969,9 +1122,9 @@
   <main>
 
 
-    <!-- =========================
+    <!-- =========================================
          HERO
-    ========================= -->
+    ========================================= -->
 
     <section class="hero">
 
@@ -987,9 +1140,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =========================================
          INTRO
-    ========================= -->
+    ========================================= -->
 
     <section class="intro">
 
@@ -1018,9 +1171,9 @@
     </section>
 
 
-    <!-- =========================
-         COLLECTION
-    ========================= -->
+    <!-- =========================================
+         KOLEKSİYON
+    ========================================= -->
 
     <section
       id="collection"
@@ -1043,7 +1196,7 @@
       <div class="products">
 
 
-        <!-- PRODUCT 1 -->
+        <!-- ÜRÜN 1 -->
 
         <article class="card">
 
@@ -1081,7 +1234,7 @@
         </article>
 
 
-        <!-- PRODUCT 2 -->
+        <!-- ÜRÜN 2 -->
 
         <article class="card">
 
@@ -1119,7 +1272,7 @@
         </article>
 
 
-        <!-- PRODUCT 3 -->
+        <!-- ÜRÜN 3 -->
 
         <article class="card">
 
@@ -1162,9 +1315,9 @@
     </section>
 
 
-    <!-- =========================
-         ABOUT
-    ========================= -->
+    <!-- =========================================
+         HAKKIMIZDA
+    ========================================= -->
 
     <section
       id="about"
@@ -1194,9 +1347,9 @@
     </section>
 
 
-    <!-- =========================
-         CONTACT
-    ========================= -->
+    <!-- =========================================
+         İLETİŞİM
+    ========================================= -->
 
     <section
       id="contact"
@@ -1239,7 +1392,9 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
 
   <footer class="footer">
 
@@ -1248,44 +1403,60 @@
   </footer>
 
 
-  <!-- MOBILE MENU SCRIPT -->
+  <!-- =========================================
+       MOBİL MENÜ JAVASCRIPT
+  ========================================= -->
 
   <script>
 
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+    const menuBtn =
+      document.getElementById("menuBtn");
 
-    menuBtn.addEventListener("click", function(){
+    const mobileMenu =
+      document.getElementById("mobileMenu");
 
-      const isOpen =
-        mobileMenu.classList.toggle("active");
 
-      menuBtn.setAttribute(
-        "aria-expanded",
-        isOpen
-      );
+    menuBtn.addEventListener(
+      "click",
+      function(){
 
-    });
+        const isOpen =
+          mobileMenu.classList.toggle("active");
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+      }
+    );
 
 
     /* Menüden bir yere tıklayınca kapat */
 
     document
       .querySelectorAll(".mobile-menu a")
-      .forEach(function(link){
+      .forEach(
+        function(link){
 
-        link.addEventListener("click", function(){
+          link.addEventListener(
+            "click",
+            function(){
 
-          mobileMenu.classList.remove("active");
+              mobileMenu.classList.remove(
+                "active"
+              );
 
-          menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
+              menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+            }
           );
 
-        });
-
-      });
+        }
+      );
 
   </script>
 
