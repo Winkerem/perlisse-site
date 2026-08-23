@@ -1018,6 +1018,113 @@
 
     }
 
+
+    /* =========================================
+       PERLISSE PREMIUM ANIMASYONLARI
+       ========================================= */
+
+    /* Ürün kartı */
+    .card{
+      transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .35s ease;
+    }
+
+    @media (hover:hover) and (pointer:fine){
+
+      .card:hover{
+        transform:translateY(-7px);
+
+        box-shadow:
+          0 20px 45px rgba(0,0,0,.30);
+      }
+
+      .card:hover .pic img{
+        transform:scale(1.035);
+
+        filter:brightness(1.04);
+      }
+
+      .shopbtn:hover,
+      .contact-btn:hover{
+        transform:translateY(-2px);
+
+        letter-spacing:2.2px;
+      }
+
+      .links a:hover{
+        color:var(--gold-light);
+
+        opacity:.82;
+      }
+
+    }
+
+    /* Ürün fotoğrafı */
+    .pic img{
+      transition:
+        transform .7s cubic-bezier(.2,.65,.3,1),
+        filter .5s ease;
+    }
+
+    /* Butonlar */
+    .shopbtn,
+    .contact-btn{
+      transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        transform .3s ease,
+        letter-spacing .3s ease;
+    }
+
+    .shopbtn:active,
+    .contact-btn:active{
+      transform:scale(.98);
+    }
+
+    /* Mobilde hover hareketlerini kapat */
+    @media(max-width:760px){
+
+      .card{
+        transform:none;
+      }
+
+      .card:hover{
+        transform:none;
+
+        box-shadow:none;
+      }
+
+      .card:hover .pic img{
+        transform:none;
+
+        filter:none;
+      }
+
+      .shopbtn:hover,
+      .contact-btn:hover{
+        transform:none;
+        letter-spacing:2px;
+      }
+
+    }
+
+    /* Hareket azaltma tercihi */
+    @media(prefers-reduced-motion:reduce){
+
+      *,
+      *::before,
+      *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+        scroll-behavior:auto !important;
+      }
+
+    }
+
   </style>
 
 </head>
