@@ -1023,12 +1023,27 @@
        PERLISSE PREMIUM ANIMASYONLARI
        ========================================= */
 
-    /* Ürün kartı */
     .card{
       transition:
         transform .45s ease,
         box-shadow .45s ease,
         border-color .35s ease;
+    }
+
+    .pic img{
+      transition:
+        transform .7s cubic-bezier(.2,.65,.3,1),
+        filter .5s ease;
+    }
+
+    .shopbtn,
+    .contact-btn{
+      transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        transform .25s ease,
+        letter-spacing .3s ease;
     }
 
     @media (hover:hover) and (pointer:fine){
@@ -1042,138 +1057,81 @@
 
       .card:hover .pic img{
         transform:scale(1.035);
-
         filter:brightness(1.04);
       }
 
       .shopbtn:hover,
       .contact-btn:hover{
         transform:translateY(-2px);
-
         letter-spacing:2.2px;
       }
 
-      .links a:hover{
-        color:var(--gold-light);
-
-        opacity:.82;
-      }
-
     }
 
-    /* Ürün fotoğrafı */
-    .pic img{
-      transition:
-        transform .7s cubic-bezier(.2,.65,.3,1),
-        filter .5s ease;
-    }
-
-    /* Butonlar */
-    .shopbtn,
-    .contact-btn{
-      transition:
-        background-color .3s ease,
-        color .3s ease,
-        border-color .3s ease,
-        transform .3s ease,
-        letter-spacing .3s ease;
-    }
-
-    .shopbtn:active,
-    .contact-btn:active{
-      transform:scale(.98);
-    }
-
-    /* Mobilde hover hareketlerini kapat */
     @media(max-width:760px){
 
-      /* Mobilde dokunma odaklı premium animasyon */
-      .card{
-        transform:translateY(0) scale(1);
+      /* Mobil hero giriş */
+      .hero-frame{
+        animation:mobileHeroIn .9s ease both;
+      }
+
+      /* Ürünler ekrana girerken sırayla görünür */
+      .products .card{
+        opacity:0;
+        transform:translateY(28px) scale(.985);
 
         box-shadow:
           0 8px 24px rgba(0,0,0,.16);
 
         transition:
-          transform .32s ease,
-          box-shadow .32s ease,
-          border-color .32s ease;
+          opacity .55s ease,
+          transform .45s ease,
+          box-shadow .4s ease,
+          border-color .35s ease;
       }
 
-      .card:active{
-        transform:translateY(-4px) scale(.992);
+      .products .card.mobile-visible{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+
+      /* Dokunulan ürün */
+      .products .card.mobile-selected{
+        transform:translateY(-6px) scale(.992);
 
         border-color:
-          rgba(201,173,112,.65);
+          rgba(201,173,112,.72);
 
         box-shadow:
-          0 16px 34px rgba(0,0,0,.26);
+          0 20px 42px rgba(0,0,0,.30);
       }
 
-      .card:active .pic img{
-        transform:scale(1.025);
-
-        filter:brightness(1.035);
-
-        transition:
-          transform .35s ease,
-          filter .35s ease;
+      .products .card.mobile-selected .pic img{
+        transform:scale(1.045);
+        filter:brightness(1.05);
       }
 
-      .shopbtn:active,
-      .contact-btn:active{
-        transform:scale(.97);
-
-        background:rgba(201,173,112,.16);
-
+      .shopbtn.mobile-pressed,
+      .contact-btn.mobile-pressed{
+        transform:scale(.95);
+        background:rgba(201,173,112,.18);
         border-color:var(--gold-light);
-
-        transition:
-          transform .16s ease,
-          background .16s ease;
-      }
-
-      /* Sayfa açılırken kartlar zarifçe yerleşsin */
-      .products .card{
-        animation:
-          mobileCardIn .65s ease both;
-      }
-
-      .products .card:nth-child(1){
-        animation-delay:.05s;
-      }
-
-      .products .card:nth-child(2){
-        animation-delay:.14s;
-      }
-
-      .products .card:nth-child(3){
-        animation-delay:.23s;
       }
 
     }
 
-    @keyframes mobileCardIn{
-
+    @keyframes mobileHeroIn{
       from{
         opacity:0;
-
-        transform:
-          translateY(18px);
-
+        transform:scale(1.025);
       }
 
       to{
         opacity:1;
-
-        transform:
-          translateY(0);
-
+        transform:scale(1);
       }
-
     }
 
-    /* Hareket azaltma tercihi */
     @media(prefers-reduced-motion:reduce){
 
       *,
@@ -1581,6 +1539,116 @@
   ========================================= -->
 
   <script>
+    /* =========================================
+       MOBİL DOKUNMA ANİMASYONLARI
+       ========================================= */
+
+    if (window.matchMedia("(max-width:760px)").matches) {
+
+      const cards =
+        document.querySelectorAll(".products .card");
+
+      const revealCards = () => {
+
+        cards.forEach((card, index) => {
+
+          setTimeout(() => {
+            card.classList.add("mobile-visible");
+          }, 100 + (index * 150));
+
+        });
+
+      };
+
+      if ("IntersectionObserver" in window) {
+
+        const observer =
+          new IntersectionObserver(
+            (entries, obs) => {
+
+              entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                  revealCards();
+                  obs.disconnect();
+                }
+
+              });
+
+            },
+            {threshold:.12}
+          );
+
+        const products =
+          document.querySelector(".products");
+
+        if (products) {
+          observer.observe(products);
+        }
+
+      } else {
+        revealCards();
+      }
+
+
+      /* Ürün kartına dokununca zoom açık kalır */
+      cards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+          cards.forEach(other => {
+
+            if (other !== card) {
+              other.classList.remove(
+                "mobile-selected"
+              );
+            }
+
+          });
+
+          card.classList.toggle(
+            "mobile-selected"
+          );
+
+        });
+
+      });
+
+
+      /* Buton dokunma efekti */
+      document
+        .querySelectorAll(".shopbtn, .contact-btn")
+        .forEach(button => {
+
+          button.addEventListener(
+            "touchstart",
+            () => {
+              button.classList.add(
+                "mobile-pressed"
+              );
+            },
+            {passive:true}
+          );
+
+          button.addEventListener(
+            "touchend",
+            () => {
+
+              setTimeout(() => {
+                button.classList.remove(
+                  "mobile-pressed"
+                );
+              }, 140);
+
+            },
+            {passive:true}
+          );
+
+        });
+
+    }
+
+
 
     const menuBtn =
       document.getElementById("menuBtn");
