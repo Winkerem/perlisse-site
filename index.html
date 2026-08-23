@@ -1087,26 +1087,88 @@
     /* Mobilde hover hareketlerini kapat */
     @media(max-width:760px){
 
+      /* Mobilde dokunma odaklı premium animasyon */
       .card{
-        transform:none;
+        transform:translateY(0) scale(1);
+
+        box-shadow:
+          0 8px 24px rgba(0,0,0,.16);
+
+        transition:
+          transform .32s ease,
+          box-shadow .32s ease,
+          border-color .32s ease;
       }
 
-      .card:hover{
-        transform:none;
+      .card:active{
+        transform:translateY(-4px) scale(.992);
 
-        box-shadow:none;
+        border-color:
+          rgba(201,173,112,.65);
+
+        box-shadow:
+          0 16px 34px rgba(0,0,0,.26);
       }
 
-      .card:hover .pic img{
-        transform:none;
+      .card:active .pic img{
+        transform:scale(1.025);
 
-        filter:none;
+        filter:brightness(1.035);
+
+        transition:
+          transform .35s ease,
+          filter .35s ease;
       }
 
-      .shopbtn:hover,
-      .contact-btn:hover{
-        transform:none;
-        letter-spacing:2px;
+      .shopbtn:active,
+      .contact-btn:active{
+        transform:scale(.97);
+
+        background:rgba(201,173,112,.16);
+
+        border-color:var(--gold-light);
+
+        transition:
+          transform .16s ease,
+          background .16s ease;
+      }
+
+      /* Sayfa açılırken kartlar zarifçe yerleşsin */
+      .products .card{
+        animation:
+          mobileCardIn .65s ease both;
+      }
+
+      .products .card:nth-child(1){
+        animation-delay:.05s;
+      }
+
+      .products .card:nth-child(2){
+        animation-delay:.14s;
+      }
+
+      .products .card:nth-child(3){
+        animation-delay:.23s;
+      }
+
+    }
+
+    @keyframes mobileCardIn{
+
+      from{
+        opacity:0;
+
+        transform:
+          translateY(18px);
+
+      }
+
+      to{
+        opacity:1;
+
+        transform:
+          translateY(0);
+
       }
 
     }
