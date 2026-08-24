@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="tr">
 <head>
+
   <meta charset="utf-8">
 
   <meta
@@ -400,7 +401,7 @@
     .products{
       width:100%;
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(4,minmax(0,1fr));
       gap:24px;
     }
 
@@ -637,7 +638,7 @@
 
       .hero-frame{
         width:100%;
-        min-height:clamp(420px,118vw,610px);
+        min-height:clamp(510px,130vw,640px);
 
         -webkit-mask-image:
           linear-gradient(
@@ -667,9 +668,12 @@
       }
 
       .hero img{
+        position:absolute;
+        inset:0;
         width:100%;
         height:100%;
         display:block;
+        max-width:none;
         object-fit:cover;
       }
 
@@ -891,9 +895,11 @@
         aria-label="Menüyü aç"
         aria-expanded="false"
       >
+
         <span></span>
         <span></span>
         <span></span>
+
       </button>
 
     </div>
@@ -1009,7 +1015,7 @@
 
             <img
               src="images/product1.jpg"
-              alt="Perlisse Nocturne"
+              alt="Perlisse bileklikler"
               loading="lazy"
             >
 
@@ -1018,7 +1024,7 @@
           <div class="cardbody">
 
             <h3>
-              Hayalet Küpe
+              Bileklikler
             </h3>
 
             <div class="price">
@@ -1044,7 +1050,7 @@
 
             <img
               src="images/product2.jpg"
-              alt="Perlisse Éclat"
+              alt="Perlisse küpeler"
               loading="lazy"
             >
 
@@ -1053,7 +1059,7 @@
           <div class="cardbody">
 
             <h3>
-              Éclat
+              Küpeler
             </h3>
 
             <div class="price">
@@ -1079,7 +1085,7 @@
 
             <img
               src="images/product3.jpg"
-              alt="Perlisse Aurelia"
+              alt="Perlisse yüzükler"
               loading="lazy"
             >
 
@@ -1088,7 +1094,7 @@
           <div class="cardbody">
 
             <h3>
-              Şahmeran Yüzük
+              Yüzükler
             </h3>
 
             <div class="price">
@@ -1098,6 +1104,41 @@
             <a
               class="shopbtn"
               href="https://www.shopier.com/Perlisse/50136044"
+              target="_blank"
+              rel="noopener"
+            >
+              Satın al
+            </a>
+
+          </div>
+
+        </article>
+
+        <article class="card">
+
+          <div class="pic">
+
+            <img
+              src="images/product4.jpg"
+              alt="Perlisse kolyeler"
+              loading="lazy"
+            >
+
+          </div>
+
+          <div class="cardbody">
+
+            <h3>
+              Kolyeler
+            </h3>
+
+            <div class="price">
+              Perlisse Atelier
+            </div>
+
+            <a
+              class="shopbtn"
+              href="https://shopier.com/Perlisse"
               target="_blank"
               rel="noopener"
             >
