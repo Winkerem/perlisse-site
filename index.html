@@ -42,33 +42,19 @@
 
   <style>
 
-    /* =========================================
-       RENKLER
-    ========================================= */
-
     :root{
       --burgundy:#351018;
       --burgundy-dark:#24090e;
       --burgundy-soft:#551b26;
-
       --olive:#4b5230;
       --olive-light:#737b4d;
-
       --gold:#c9ad70;
       --gold-light:#e5d09a;
-
       --cream:#f4ede2;
       --white:#fffaf2;
-
       --ink:#211719;
-
       --line:rgba(201,173,112,.35);
     }
-
-
-    /* =========================================
-       GENEL
-    ========================================= */
 
     *{
       box-sizing:border-box;
@@ -76,33 +62,23 @@
 
     html{
       scroll-behavior:smooth;
-
       width:100%;
       max-width:100%;
-
       overflow-x:hidden;
     }
 
     body{
       margin:0;
-
       width:100%;
       max-width:100%;
-
       overflow-x:hidden;
-
       color:var(--cream);
-
       font-family:Inter,Arial,sans-serif;
-
       background-color:var(--burgundy);
-
       background-image:url("images/background.png");
-
       background-size:600px auto;
       background-position:center top;
       background-repeat:repeat;
-
       background-attachment:fixed;
     }
 
@@ -115,77 +91,49 @@
       color:inherit;
     }
 
-
-    /* =========================================
-       NAVBAR
-    ========================================= */
-
     .nav{
       position:sticky;
-
       top:0;
-
       z-index:1000;
-
       width:100%;
-
       background:rgba(53,16,24,.97);
-
       backdrop-filter:blur(12px);
       -webkit-backdrop-filter:blur(12px);
-
       border-bottom:1px solid var(--line);
     }
 
     .navin{
       width:100%;
       max-width:1180px;
-
       height:76px;
-
       margin:auto;
-
       padding:0 22px;
-
       display:flex;
-
       align-items:center;
       justify-content:space-between;
     }
 
     .brand{
       font-family:"Cormorant Garamond",serif;
-
       font-size:35px;
-
       font-weight:600;
-
       letter-spacing:6px;
-
       color:var(--gold-light);
-
       white-space:nowrap;
     }
 
     .links{
       display:flex;
-
       align-items:center;
-
       gap:30px;
-
       font-size:12px;
-
       font-weight:500;
-
       letter-spacing:2px;
-
       text-transform:uppercase;
     }
 
     .links a{
       color:#eadfce;
-
       transition:.25s ease;
     }
 
@@ -193,41 +141,25 @@
       color:var(--gold-light);
     }
 
-
-    /* =========================================
-       MOBİL MENÜ BUTONU
-    ========================================= */
-
     .menu-btn{
       display:none;
-
       width:42px;
       height:42px;
-
       padding:0;
-
       border:1px solid rgba(229,208,154,.45);
-
       background:transparent;
-
       cursor:pointer;
-
       align-items:center;
       justify-content:center;
-
       flex-direction:column;
-
       gap:5px;
     }
 
     .menu-btn span{
       display:block;
-
       width:19px;
       height:1px;
-
       background:var(--gold-light);
-
       transition:.25s ease;
     }
 
@@ -235,109 +167,178 @@
       display:none;
     }
 
-
-    /* =========================================
-       HERO
-    ========================================= */
+    /* HERO */
 
     .hero{
       width:100%;
       max-width:1400px;
-
       margin:auto;
-
       padding:18px 18px 0;
     }
 
     .hero-frame{
       position:relative;
-
       width:100%;
-
       overflow:hidden;
-
+      isolation:isolate;
       background:var(--burgundy);
-
       border:none;
-
       box-shadow:none;
-
-      /*
-        Fotoğrafın sağ ve sol kenarlarını
-        bordo zemine yumuşak şekilde eritiyoruz.
-      */
 
       -webkit-mask-image:
         linear-gradient(
           to right,
-
           transparent 0%,
-
           rgba(0,0,0,.55) 1.5%,
-
           #000 4%,
-
           #000 96%,
-
           rgba(0,0,0,.55) 98.5%,
-
           transparent 100%
         );
 
       mask-image:
         linear-gradient(
           to right,
-
           transparent 0%,
-
           rgba(0,0,0,.55) 1.5%,
-
           #000 4%,
-
           #000 96%,
-
           rgba(0,0,0,.55) 98.5%,
-
           transparent 100%
         );
     }
 
     .hero img{
       display:block;
-
       width:100%;
       height:auto;
-
       max-height:700px;
-
       object-fit:cover;
+      transform:scale(1.01);
+      transform-origin:center center;
+      animation:hero-zoom 22s ease-in-out infinite alternate;
     }
 
+    .hero-frame::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      pointer-events:none;
+      background:
+        linear-gradient(
+          112deg,
+          rgba(53,16,24,.58) 0%,
+          rgba(53,16,24,.20) 43%,
+          rgba(75,82,48,.24) 100%
+        ),
+        linear-gradient(
+          to top,
+          rgba(36,9,14,.58) 0%,
+          transparent 54%
+        );
+    }
 
-    /* =========================================
-       INTRO
-    ========================================= */
+    .hero-content{
+      position:absolute;
+      inset:0;
+      z-index:2;
+      display:flex;
+      align-items:flex-end;
+      padding:clamp(34px,6vw,78px);
+      color:var(--white);
+    }
+
+    .hero-copy{
+      max-width:440px;
+      text-shadow:0 2px 18px rgba(36,9,14,.22);
+    }
+
+    .hero-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:11px;
+      margin:0 0 15px;
+      color:var(--gold-light);
+      font-size:10px;
+      font-weight:600;
+      letter-spacing:3.2px;
+      text-transform:uppercase;
+    }
+
+    .hero-kicker::before{
+      content:"";
+      width:30px;
+      height:1px;
+      background:var(--gold-light);
+    }
+
+    .hero-copy p{
+      max-width:390px;
+      margin:0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(29px,3.3vw,48px);
+      font-weight:600;
+      line-height:.98;
+    }
+
+    .hero-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:45px;
+      margin-top:23px;
+      padding:13px 21px;
+      border:1px solid rgba(229,208,154,.86);
+      color:var(--white);
+      font-size:10px;
+      font-weight:600;
+      letter-spacing:2.2px;
+      text-transform:uppercase;
+      background:rgba(53,16,24,.20);
+      backdrop-filter:blur(5px);
+      -webkit-backdrop-filter:blur(5px);
+      transition:
+        background-color .3s ease,
+        color .3s ease,
+        transform .3s ease,
+        border-color .3s ease;
+    }
+
+    .hero-cta:hover{
+      color:var(--burgundy-dark);
+      background:var(--gold-light);
+      border-color:var(--gold-light);
+      transform:translateY(-2px);
+    }
+
+    .hero-cta:active{
+      transform:translateY(0) scale(.98);
+    }
+
+    @keyframes hero-zoom{
+      from{
+        transform:scale(1.01);
+      }
+
+      to{
+        transform:scale(1.065);
+      }
+    }
 
     .intro{
       width:100%;
       max-width:900px;
-
       margin:auto;
-
       padding:100px 24px 85px;
-
       text-align:center;
     }
 
     .eyebrow{
       font-size:11px;
-
       font-weight:500;
-
       letter-spacing:5px;
-
       text-transform:uppercase;
-
       color:var(--gold-light);
     }
 
@@ -345,134 +346,88 @@
     h2,
     h3{
       font-family:"Cormorant Garamond",serif;
-
       font-weight:600;
     }
 
     h1{
       font-size:68px;
-
       line-height:.95;
-
       margin:20px 0;
-
       color:var(--cream);
     }
 
     .intro p{
       max-width:720px;
-
       margin:0 auto;
-
       font-size:16px;
-
       line-height:1.9;
-
       color:#ded1c3;
     }
 
     .btn{
       display:inline-block;
-
       margin-top:28px;
-
       padding:15px 30px;
-
       background:var(--gold);
-
       color:var(--burgundy-dark);
-
       font-size:11px;
-
       font-weight:600;
-
       letter-spacing:2px;
-
       text-transform:uppercase;
-
       transition:.25s ease;
     }
 
     .btn:hover{
       background:var(--gold-light);
-
       transform:translateY(-2px);
     }
-
-
-    /* =========================================
-       KOLEKSİYON
-    ========================================= */
 
     .section{
       width:100%;
       max-width:1180px;
-
       margin:auto;
-
       padding:85px 22px;
     }
 
     .sectionhead{
       text-align:center;
-
       margin-bottom:45px;
     }
 
     .sectionhead h2{
       margin:10px 0 0;
-
       font-size:52px;
-
       color:var(--cream);
     }
 
     .products{
       width:100%;
-
       display:grid;
-
-      grid-template-columns:
-        repeat(3,minmax(0,1fr));
-
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:24px;
     }
 
     .card{
       min-width:0;
-
       overflow:hidden;
-
       background:rgba(36,9,14,.76);
-
       border:1px solid rgba(201,173,112,.28);
-
       backdrop-filter:blur(5px);
-
       -webkit-backdrop-filter:blur(5px);
-
       transition:.3s ease;
     }
 
     .card:hover{
       transform:translateY(-5px);
-
-      border-color:
-        rgba(201,173,112,.65);
-
-      box-shadow:
-        0 18px 40px rgba(0,0,0,.3);
+      border-color:rgba(201,173,112,.65);
+      box-shadow:0 18px 40px rgba(0,0,0,.3);
     }
 
     .pic{
       width:100%;
-
       aspect-ratio:1 / 1;
-
       position:relative;
-
       overflow:hidden;
-
       background:
         linear-gradient(
           145deg,
@@ -483,12 +438,9 @@
 
     .pic img{
       display:block;
-
       width:100%;
       height:100%;
-
       object-fit:cover;
-
       transition:
         transform .45s ease,
         filter .45s ease;
@@ -496,7 +448,6 @@
 
     .card:hover .pic img{
       transform:scale(1.035);
-
       filter:brightness(1.04);
     }
 
@@ -506,194 +457,118 @@
 
     .card h3{
       font-size:29px;
-
       margin:0 0 7px;
-
       color:var(--cream);
     }
 
     .price{
       color:#aeb681;
-
       font-size:13px;
     }
 
     .shopbtn{
       display:block;
-
       width:100%;
-
       text-align:center;
-
       margin-top:18px;
-
       padding:12px;
-
       border:1px solid var(--gold);
-
       color:var(--gold-light);
-
       font-size:11px;
-
       font-weight:500;
-
       letter-spacing:2px;
-
       text-transform:uppercase;
-
       transition:.25s ease;
     }
 
     .shopbtn:hover{
       background:var(--gold);
-
       color:var(--burgundy-dark);
     }
 
-
-    /* =========================================
-       HAKKIMIZDA
-    ========================================= */
-
     .about{
       width:100%;
-
       background:rgba(36,9,14,.74);
-
-      border-top:
-        1px solid rgba(201,173,112,.2);
-
-      border-bottom:
-        1px solid rgba(201,173,112,.2);
+      border-top:1px solid rgba(201,173,112,.2);
+      border-bottom:1px solid rgba(201,173,112,.2);
     }
 
     .aboutin{
       width:100%;
       max-width:900px;
-
       margin:auto;
-
       padding:100px 24px;
-
       text-align:center;
     }
 
     .about h2{
       font-size:56px;
-
       margin:15px 0 20px;
-
       color:var(--cream);
     }
 
     .about p{
       margin:0;
-
       font-size:16px;
-
       line-height:1.9;
-
       color:#d8cabc;
     }
 
-
-    /* =========================================
-       İLETİŞİM
-    ========================================= */
-
     .contact{
       width:100%;
-
       padding:100px 22px;
-
       text-align:center;
-
       background:rgba(75,82,48,.94);
-
-      border-top:
-        1px solid rgba(201,173,112,.25);
+      border-top:1px solid rgba(201,173,112,.25);
     }
 
     .contact h2{
       margin:0 0 25px;
-
       font-size:52px;
-
       color:var(--cream);
     }
 
     .contact-buttons{
       display:flex;
-
       justify-content:center;
-
       gap:15px;
-
       flex-wrap:wrap;
     }
 
     .contact-btn{
       display:inline-flex;
-
       align-items:center;
       justify-content:center;
-
       min-width:190px;
-
       padding:15px 25px;
-
       border:1px solid var(--gold-light);
-
       color:var(--cream);
-
       font-size:11px;
-
       font-weight:600;
-
       letter-spacing:2px;
-
       text-transform:uppercase;
-
       transition:.25s ease;
     }
 
     .contact-btn:hover{
       background:var(--gold-light);
-
       color:var(--burgundy-dark);
     }
 
-
-    /* =========================================
-       FOOTER
-    ========================================= */
-
     .footer{
       width:100%;
-
       padding:30px 22px;
-
       text-align:center;
-
       background:rgba(36,9,14,.97);
-
       color:#cfc1b5;
-
       font-size:11px;
-
       letter-spacing:3px;
     }
-
-
-    /* =========================================
-       TABLET
-    ========================================= */
 
     @media(max-width:900px){
 
       .products{
-        grid-template-columns:
-          repeat(2,minmax(0,1fr));
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
       h1{
@@ -702,31 +577,20 @@
 
     }
 
-
-    /* =========================================
-       MOBİL
-    ========================================= */
-
     @media(max-width:760px){
 
       body{
         background-size:500px auto;
-
         background-attachment:scroll;
       }
 
-
-      /* NAV */
-
       .navin{
         height:66px;
-
         padding:0 15px;
       }
 
       .brand{
         font-size:27px;
-
         letter-spacing:4px;
       }
 
@@ -738,28 +602,16 @@
         display:flex;
       }
 
-
-      /* MOBİL MENÜ */
-
       .mobile-menu{
         display:none;
-
         position:absolute;
-
         top:66px;
         left:0;
-
         width:100%;
-
         padding:10px 15px 18px;
-
         background:rgba(53,16,24,.98);
-
-        border-bottom:
-          1px solid var(--line);
-
-        box-shadow:
-          0 15px 35px rgba(0,0,0,.3);
+        border-bottom:1px solid var(--line);
+        box-shadow:0 15px 35px rgba(0,0,0,.3);
       }
 
       .mobile-menu.active{
@@ -768,20 +620,12 @@
 
       .mobile-menu a{
         display:block;
-
         padding:16px 8px;
-
-        border-bottom:
-          1px solid rgba(201,173,112,.15);
-
+        border-bottom:1px solid rgba(201,173,112,.15);
         color:var(--cream);
-
         font-size:11px;
-
         font-weight:500;
-
         letter-spacing:2px;
-
         text-transform:uppercase;
       }
 
@@ -789,112 +633,109 @@
         border-bottom:0;
       }
 
-
-      /* =====================================
-         MOBİL HERO
-      ===================================== */
-
       .hero{
         width:100%;
-
         padding:8px 0 0;
       }
 
       .hero-frame{
         width:100%;
-
-        /*
-          Mobilde fade biraz daha geniş.
-          Böylece fotoğrafın kenarları
-          kesinlikle kesilmiş gibi görünmeyecek.
-        */
+        min-height:clamp(420px,118vw,610px);
 
         -webkit-mask-image:
           linear-gradient(
             to right,
-
             transparent 0%,
-
             rgba(0,0,0,.45) 1%,
-
             rgba(0,0,0,.82) 3%,
-
             #000 6%,
-
             #000 94%,
-
             rgba(0,0,0,.82) 97%,
-
             rgba(0,0,0,.45) 99%,
-
             transparent 100%
           );
 
         mask-image:
           linear-gradient(
             to right,
-
             transparent 0%,
-
             rgba(0,0,0,.45) 1%,
-
             rgba(0,0,0,.82) 3%,
-
             #000 6%,
-
             #000 94%,
-
             rgba(0,0,0,.82) 97%,
-
             rgba(0,0,0,.45) 99%,
-
             transparent 100%
           );
       }
 
       .hero img{
         width:100%;
-
-        height:auto;
-
+        height:100%;
         display:block;
-
         object-fit:cover;
       }
 
+      .hero-frame::before{
+        background:
+          linear-gradient(
+            118deg,
+            rgba(53,16,24,.70) 0%,
+            rgba(53,16,24,.25) 54%,
+            rgba(75,82,48,.34) 100%
+          ),
+          linear-gradient(
+            to top,
+            rgba(36,9,14,.76) 0%,
+            transparent 63%
+          );
+      }
 
-      /* INTRO */
+      .hero-content{
+        align-items:flex-end;
+        padding:58px 24px 35px;
+      }
+
+      .hero-kicker{
+        margin-bottom:13px;
+        font-size:9px;
+        letter-spacing:2.8px;
+      }
+
+      .hero-copy p{
+        max-width:310px;
+        font-size:37px;
+        line-height:1;
+      }
+
+      .hero-cta{
+        width:100%;
+        max-width:270px;
+        margin-top:20px;
+      }
 
       .intro{
         width:100%;
-
         padding:75px 20px 65px;
       }
 
       .eyebrow{
         font-size:9px;
-
         letter-spacing:4px;
       }
 
       h1{
         font-size:45px;
-
         line-height:1;
       }
 
       .intro p{
         font-size:14px;
-
         line-height:1.8;
       }
 
-
-      /* COLLECTION */
-
       .section{
         width:100%;
-
         padding:65px 16px;
       }
 
@@ -904,9 +745,7 @@
 
       .products{
         width:100%;
-
         grid-template-columns:1fr;
-
         gap:20px;
       }
 
@@ -916,7 +755,6 @@
 
       .pic{
         width:100%;
-
         aspect-ratio:1 / 1;
       }
 
@@ -928,29 +766,20 @@
         font-size:27px;
       }
 
-
-      /* ABOUT */
-
       .aboutin{
         width:100%;
-
         padding:75px 20px;
       }
 
       .about h2{
         font-size:43px;
-
         line-height:1;
       }
 
       .about p{
         font-size:14px;
-
         line-height:1.8;
       }
-
-
-      /* CONTACT */
 
       .contact{
         padding:75px 20px;
@@ -958,47 +787,32 @@
 
       .contact h2{
         font-size:43px;
-
         line-height:1;
       }
 
       .contact-buttons{
         flex-direction:column;
-
         align-items:center;
-
         width:100%;
       }
 
       .contact-btn{
         width:100%;
-
         max-width:300px;
       }
 
-
-      /* FOOTER */
-
       .footer{
         padding:25px 15px;
-
         font-size:9px;
-
         letter-spacing:2px;
       }
 
     }
 
-
-    /* =========================================
-       ÇOK KÜÇÜK TELEFONLAR
-    ========================================= */
-
     @media(max-width:380px){
 
       .brand{
         font-size:24px;
-
         letter-spacing:3px;
       }
 
@@ -1012,135 +826,23 @@
 
       .section{
         padding-left:12px;
-
         padding-right:12px;
       }
 
-    }
-
-
-    /* =========================================
-       PERLISSE PREMIUM ANIMASYONLARI
-       ========================================= */
-
-    .card{
-      transition:
-        transform .45s ease,
-        box-shadow .45s ease,
-        border-color .35s ease;
-    }
-
-    .pic img{
-      transition:
-        transform .7s cubic-bezier(.2,.65,.3,1),
-        filter .5s ease;
-    }
-
-    .shopbtn,
-    .contact-btn{
-      transition:
-        background-color .3s ease,
-        color .3s ease,
-        border-color .3s ease,
-        transform .25s ease,
-        letter-spacing .3s ease;
-    }
-
-    @media (hover:hover) and (pointer:fine){
-
-      .card:hover{
-        transform:translateY(-7px);
-
-        box-shadow:
-          0 20px 45px rgba(0,0,0,.30);
+      .hero-copy p{
+        font-size:33px;
       }
 
-      .card:hover .pic img{
-        transform:scale(1.035);
-        filter:brightness(1.04);
-      }
-
-      .shopbtn:hover,
-      .contact-btn:hover{
-        transform:translateY(-2px);
-        letter-spacing:2.2px;
-      }
-
-    }
-
-    @media(max-width:760px){
-
-      /* Mobil hero giriş */
-      .hero-frame{
-        animation:mobileHeroIn .9s ease both;
-      }
-
-      /* Ürünler ekrana girerken sırayla görünür */
-      .products .card{
-        opacity:0;
-        transform:translateY(28px) scale(.985);
-
-        box-shadow:
-          0 8px 24px rgba(0,0,0,.16);
-
-        transition:
-          opacity .55s ease,
-          transform .45s ease,
-          box-shadow .4s ease,
-          border-color .35s ease;
-      }
-
-      .products .card.mobile-visible{
-        opacity:1;
-        transform:translateY(0) scale(1);
-      }
-
-      /* Dokunulan ürün */
-      .products .card.mobile-selected{
-        transform:translateY(-6px) scale(.992);
-
-        border-color:
-          rgba(201,173,112,.72);
-
-        box-shadow:
-          0 20px 42px rgba(0,0,0,.30);
-      }
-
-      .products .card.mobile-selected .pic img{
-        transform:scale(1.045);
-        filter:brightness(1.05);
-      }
-
-      .shopbtn.mobile-pressed,
-      .contact-btn.mobile-pressed{
-        transform:scale(.95);
-        background:rgba(201,173,112,.18);
-        border-color:var(--gold-light);
-      }
-
-    }
-
-    @keyframes mobileHeroIn{
-      from{
-        opacity:0;
-        transform:scale(1.025);
-      }
-
-      to{
-        opacity:1;
-        transform:scale(1);
-      }
     }
 
     @media(prefers-reduced-motion:reduce){
 
-      *,
-      *::before,
-      *::after{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-        transition-duration:.01ms !important;
-        scroll-behavior:auto !important;
+      .hero img{
+        animation:none;
+      }
+
+      .hero-cta{
+        transition:none;
       }
 
     }
@@ -1149,13 +851,7 @@
 
 </head>
 
-
 <body>
-
-
-  <!-- =========================================
-       NAVBAR
-  ========================================= -->
 
   <header class="nav">
 
@@ -1167,9 +863,6 @@
       >
         PERLISSE
       </a>
-
-
-      <!-- MASAÜSTÜ MENÜ -->
 
       <nav class="links">
 
@@ -1195,26 +888,18 @@
 
       </nav>
 
-
-      <!-- MOBİL HAMBURGER -->
-
       <button
         class="menu-btn"
         id="menuBtn"
         aria-label="Menüyü aç"
         aria-expanded="false"
       >
-
         <span></span>
         <span></span>
         <span></span>
-
       </button>
 
     </div>
-
-
-    <!-- MOBİL MENÜ -->
 
     <div
       class="mobile-menu"
@@ -1245,13 +930,7 @@
 
   </header>
 
-
   <main>
-
-
-    <!-- =========================================
-         HERO
-    ========================================= -->
 
     <section class="hero">
 
@@ -1262,14 +941,32 @@
           alt="Perlisse Atelier takı koleksiyonu"
         >
 
+        <div class="hero-content">
+
+          <div class="hero-copy">
+
+            <div class="hero-kicker">
+              Perlisse Atelier
+            </div>
+
+            <p>
+              Zarafetin sessiz ışıltısı.
+            </p>
+
+            <a
+              class="hero-cta"
+              href="#collection"
+            >
+              Koleksiyonu keşfet
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
 
     </section>
-
-
-    <!-- =========================================
-         INTRO
-    ========================================= -->
 
     <section class="intro">
 
@@ -1297,11 +994,6 @@
 
     </section>
 
-
-    <!-- =========================================
-         KOLEKSİYON
-    ========================================= -->
-
     <section
       id="collection"
       class="section"
@@ -1319,11 +1011,7 @@
 
       </div>
 
-
       <div class="products">
-
-
-        <!-- ÜRÜN 1 -->
 
         <article class="card">
 
@@ -1360,9 +1048,6 @@
 
         </article>
 
-
-        <!-- ÜRÜN 2 -->
-
         <article class="card">
 
           <div class="pic">
@@ -1378,7 +1063,7 @@
           <div class="cardbody">
 
             <h3>
-              Bileklikler
+              Éclat
             </h3>
 
             <div class="price">
@@ -1387,7 +1072,7 @@
 
             <a
               class="shopbtn"
-              href="https://www.shopier.com/Perlisse#Bileklikler"
+              href="https://shopier.com/Perlisse"
               target="_blank"
               rel="noopener"
             >
@@ -1397,9 +1082,6 @@
           </div>
 
         </article>
-
-
-        <!-- ÜRÜN 3 -->
 
         <article class="card">
 
@@ -1436,15 +1118,9 @@
 
         </article>
 
-
       </div>
 
     </section>
-
-
-    <!-- =========================================
-         HAKKIMIZDA
-    ========================================= -->
 
     <section
       id="about"
@@ -1469,11 +1145,6 @@
       </div>
 
     </section>
-
-
-    <!-- =========================================
-         İLETİŞİM
-    ========================================= -->
 
     <section
       id="contact"
@@ -1502,7 +1173,7 @@
         <a
           class="contact-btn"
           href="mailto:info@perlisse.com"
-          >
+        >
           E-posta
         </a>
         
@@ -1519,143 +1190,19 @@
 
     </section>
 
-
   </main>
 
-
-  <!-- =========================================
-       FOOTER
-  ========================================= -->
-
   <footer class="footer">
-
     © 2026 PERLISSE ATELIER · İSTANBUL
-
   </footer>
 
-
-  <!-- =========================================
-       MOBİL MENÜ JAVASCRIPT
-  ========================================= -->
-
   <script>
-    /* =========================================
-       MOBİL DOKUNMA ANİMASYONLARI
-       ========================================= */
-
-    if (window.matchMedia("(max-width:760px)").matches) {
-
-      const cards =
-        document.querySelectorAll(".products .card");
-
-      const revealCards = () => {
-
-        cards.forEach((card, index) => {
-
-          setTimeout(() => {
-            card.classList.add("mobile-visible");
-          }, 100 + (index * 150));
-
-        });
-
-      };
-
-      if ("IntersectionObserver" in window) {
-
-        const observer =
-          new IntersectionObserver(
-            (entries, obs) => {
-
-              entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-                  revealCards();
-                  obs.disconnect();
-                }
-
-              });
-
-            },
-            {threshold:.12}
-          );
-
-        const products =
-          document.querySelector(".products");
-
-        if (products) {
-          observer.observe(products);
-        }
-
-      } else {
-        revealCards();
-      }
-
-
-      /* Ürün kartına dokununca zoom açık kalır */
-      cards.forEach(card => {
-
-        card.addEventListener("click", () => {
-
-          cards.forEach(other => {
-
-            if (other !== card) {
-              other.classList.remove(
-                "mobile-selected"
-              );
-            }
-
-          });
-
-          card.classList.toggle(
-            "mobile-selected"
-          );
-
-        });
-
-      });
-
-
-      /* Buton dokunma efekti */
-      document
-        .querySelectorAll(".shopbtn, .contact-btn")
-        .forEach(button => {
-
-          button.addEventListener(
-            "touchstart",
-            () => {
-              button.classList.add(
-                "mobile-pressed"
-              );
-            },
-            {passive:true}
-          );
-
-          button.addEventListener(
-            "touchend",
-            () => {
-
-              setTimeout(() => {
-                button.classList.remove(
-                  "mobile-pressed"
-                );
-              }, 140);
-
-            },
-            {passive:true}
-          );
-
-        });
-
-    }
-
-
 
     const menuBtn =
       document.getElementById("menuBtn");
 
     const mobileMenu =
       document.getElementById("mobileMenu");
-
 
     menuBtn.addEventListener(
       "click",
@@ -1671,9 +1218,6 @@
 
       }
     );
-
-
-    /* Menüden bir yere tıklayınca kapat */
 
     document
       .querySelectorAll(".mobile-menu a")
@@ -1700,7 +1244,6 @@
       );
 
   </script>
-
 
 </body>
 </html>
